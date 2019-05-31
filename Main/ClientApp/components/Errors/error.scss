@@ -1,0 +1,23 @@
+﻿.main-global-message{
+    margin-top: 40px;
+    padding: 5px;
+    padding-left: 20px;
+    margin-bottom: 14px;
+    margin: 26px auto;
+    width: 900px;
+
+    & h2{
+        color: #0c8ccc;
+        font-size: 1.5em;
+        padding-top: 12px;
+    }
+
+    & p{
+        font-family: nino;
+        font-weight: 300;
+        font-size: 1em;
+        line-height: 1.6;
+        margin-bottom: 1.25rem;
+        text-rendering: optimizeLegibility;
+    }
+}

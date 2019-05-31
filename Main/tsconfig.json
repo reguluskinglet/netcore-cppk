@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "module": "es2015",
+    "moduleResolution": "node",
+    "target": "es6",
+    "jsx": "react",
+    "allowJs": true,
+    "noImplicitAny": false,
+    "noEmitOnError": true,
+    "experimentalDecorators": true,
+    "lib": [ "es6", "dom" ],
+    "types": [ "webpack-env", "jquery", "react-addons-linked-state-mixin" ],
+    "allowSyntheticDefaultImports": true
+  },
+  "include": [
+    "./ClientApp/"
+  ],
+  "exclude": ["bin", "node_modules"]
+}

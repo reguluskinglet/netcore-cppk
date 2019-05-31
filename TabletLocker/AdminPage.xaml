@@ -1,0 +1,389 @@
+﻿<Page x:Class="TabletLocker.AdminPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TabletLocker"
+      xmlns:collections="clr-namespace:System.Collections;assembly=mscorlib"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="1280"
+      Stylus.IsFlicksEnabled="False"
+      Title="AdminPage">
+
+    <Grid>
+        <Canvas x:Name="AdminListCanvas" Background="White">
+            <Canvas.Effect>
+                <BlurEffect x:Name="AdminListCanvasBlur" Radius="0"/>
+            </Canvas.Effect>
+
+            <Canvas>
+
+                <!-- белый фон -->
+                <Path Fill="#ffedeef5" Data="F1 M 0,800.000 L 1280,800.000 L 1280,00 L 0,0 L 0,800.000 Z"/>
+
+                <Canvas>
+
+                    <!-- верхний большой блок с синим градиентом -->
+                    <Path Data="F1 M 0,0.000 L 1280,0.000 L 1280,384.500 L 0,384.500 L 0,0.000 Z" Height="151.241" Stretch="Fill">
+                        <Path.Fill>
+                            <LinearGradientBrush MappingMode="Absolute" StartPoint="-1623.667,-192.250" EndPoint="-343.667,-192.250">
+                                <LinearGradientBrush.GradientStops>
+                                    <GradientStop Offset="0.00" Color="#ff009cc6"/>
+                                    <GradientStop Offset="0.82" Color="#ff0080b9"/>
+                                </LinearGradientBrush.GradientStops>
+                                <LinearGradientBrush.Transform>
+                                    <MatrixTransform Matrix="1.000,0.000,-0.000,-1.000,1632.000,0.000" />
+                                </LinearGradientBrush.Transform>
+                            </LinearGradientBrush>
+                        </Path.Fill>
+                    </Path>
+
+                </Canvas>
+
+                <Canvas>
+
+                    <!-- sysbar -->
+                    <Path Fill="#ff0084c2" Data="F1 M 1280,40.000 L 0,40.000 L 0,0.000 L 1280,0.000 L 1280,40.000 Z"/>
+
+                    <!-- время -->
+                    <TextBlock x:Name="TimeMark" Foreground="#ffffffff" Canvas.Left="38" Canvas.Top="9" FontSize="21.58" FontFamily="Roboto Medium">12:30</TextBlock>
+
+                    <!-- дата -->
+                    <TextBlock x:Name="DateMark" Foreground="#ffffffff" Canvas.Left="1130" Canvas.Top="9" FontSize="21.58" FontFamily="Roboto Medium">05.04.2018</TextBlock>
+
+                </Canvas>
+
+                <Canvas>
+
+                    <!-- Слой 1/top/<Контур> -->
+                    <Path Opacity="0.3" Fill="#ffffffff" Data="F1 M 12803,40.000 L 0,40.000 L 0,152.000 L 1280,152.000 L 1280,40.000 Z"/>
+
+                    <Button x:Name="BtnBack" Canvas.Left="1200" Canvas.Top="75" Click="BtnBack_Click">
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="Transparent">
+                                    <Grid>
+                                        <Path Margin="10,0,0,0" Fill="#ffffffff" Data="F1 M 1229.720,87.158 L 1226.248,83.685 L 1213.933,96.000 L 1226.248,108.315 L 1229.720,104.842 L 1223.366,98.463 L 1247.183,98.463 L 1247.183,93.537 L 1223.366,93.537 L 1229.720,87.158 Z" Height="24.668" Stretch="Fill" Width="33.416" />
+                                        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Data="F1 M 1246.469,104.333 L 1246.469,109.473 C 1246.469,113.408 1243.280,116.597 1239.345,116.597 L 1211.831,116.597 C 1207.896,116.597 1204.707,113.408 1204.707,109.473 L 1204.707,81.958 C 1204.707,78.024 1207.896,74.834 1211.831,74.834 L 1239.345,74.834 C 1243.280,74.834 1246.469,78.024 1246.469,81.958 L 1246.469,88.333" Height="42" Stretch="Fill" Width="42.501"/>
+                                    </Grid>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+                    <Button x:Name="ClearDbButton" Canvas.Left="1100" Canvas.Top="75" Click="ClearDbButton_OnClick">
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="Transparent">
+                                    <Grid>
+                                       <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Data="F1 M 1246.469,104.333 L 1246.469,109.473 C 1246.469,113.408 1243.280,116.597 1239.345,116.597 L 1211.831,116.597 C 1207.896,116.597 1204.707,113.408 1204.707,109.473 L 1204.707,81.958 C 1204.707,78.024 1207.896,74.834 1211.831,74.834 L 1239.345,74.834 C 1243.280,74.834 1246.469,78.024 1246.469,81.958 L 1246.469,88.333" Height="42" Stretch="Fill" Width="42.501"/>
+                                    </Grid>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+                    <!--<Button x:Name="ClearDbButton" Visibility="Hidden" FontSize="24pt" Content="Очист.БД" Height="92" Width="192" Canvas.Left="974" Canvas.Top="51" Click="ClearDbButton_OnClick"  Style="{DynamicResource ButtonClearDbStyle}"/>-->
+
+
+                    <Canvas>
+
+                        <!-- Слой 1/<Группа>/<Контур> -->
+                        <Path Opacity="0.5" Fill="#ffffffff" Data="F1 M 66.166,76.061 C 68.910,74.811 71.954,74.108 75.161,74.108 C 85.042,74.108 93.401,80.725 96.056,89.757 C 97.575,91.329 98.907,93.006 100.020,94.781 L 100.038,94.795 C 99.464,81.569 88.526,70.983 75.161,70.983 C 69.827,70.983 64.885,72.675 60.830,75.544 C 62.635,75.648 64.416,75.822 66.166,76.061"/>
+
+                        <!-- Слой 1/<Группа>/<Контур> -->
+                        <Path Opacity="0.5" Fill="#ffffffff" Data="F1 M 92.544,111.172 L 92.409,111.173 L 90.639,111.173 C 86.688,115.192 81.209,117.656 75.161,117.656 C 63.154,117.656 53.383,107.891 53.383,95.883 C 53.383,91.492 54.694,87.406 56.937,83.982 C 55.937,83.831 54.923,83.708 53.901,83.610 C 53.773,83.602 53.645,83.600 53.518,83.593 C 51.447,87.223 50.257,91.418 50.257,95.888 C 50.257,109.618 61.430,120.791 75.161,120.791 C 83.405,120.791 90.724,116.757 95.259,110.566 C 94.401,110.885 93.493,111.094 92.544,111.172"/>
+
+                        <!-- Слой 1/<Группа>/<Контур> -->
+                        <Path Opacity="0.5" Fill="#ffffffff" Data="F1 M 86.769,99.116 C 85.956,97.330 84.892,95.767 83.592,94.204 L 59.516,94.204 L 61.402,99.116 L 86.769,99.116 Z"/>
+
+                        <!-- Слой 1/<Группа>/<Контур> -->
+                        <Path Opacity="0.5" Fill="#ffffffff" Data="F1 M 97.485,97.003 L 97.483,97.001 C 91.102,86.329 75.256,78.747 56.752,78.747 C 53.266,78.747 49.793,79.018 46.427,79.553 L 46.491,80.267 C 47.706,80.203 48.923,80.174 50.112,80.174 C 66.873,80.174 81.673,86.135 88.784,94.744 L 88.782,94.742 C 89.593,95.725 91.133,97.759 91.702,99.108 C 91.829,99.411 92.059,99.988 92.143,100.634 C 92.307,101.876 90.959,103.135 89.424,103.135 L 85.074,103.135 C 85.087,103.135 85.104,103.216 85.118,103.256 C 85.104,103.216 85.087,103.135 85.074,103.135 L 63.026,103.135 L 64.911,107.824 L 91.122,107.824 C 90.869,107.824 90.869,107.824 91.122,107.824 L 92.272,107.824 C 95.860,107.601 98.680,104.553 98.680,100.892 C 98.680,99.242 97.620,97.231 97.485,97.003"/>
+
+                    </Canvas>
+
+                    <!-- Слой 1/top/Главная форма -->
+
+
+                </Canvas>
+
+                <Grid Width="1280" Canvas.Top="155">
+                    <DataGrid x:Name="CellsGrid" SelectedCellsChanged="DataGrid_OnSelectedCellsChanged" Margin="60,0,0,0" Width="1220" Height="630" HeadersVisibility="None" BorderThickness="0" GridLinesVisibility="None" CanUserAddRows="False" CanUserReorderColumns="False" RowHeaderWidth="0" CanUserResizeColumns="False" IsReadOnly="True" ColumnHeaderHeight="0">
+                        <!--ItemsSource="{DynamicResource ResourceKey=GridItems}">-->
+                        <DataGrid.Resources>
+                            <collections:ArrayList x:Key="GridItems">
+                                <local:CellStatusItem Number="1" Name="Ячейка 1" State="в наличии" Charge="заряжен на 100%" />
+                                <local:CellStatusItem Number="2" Name="Ячейка 2" State="в наличии" Charge="заряжен на 100%" />
+                                <local:CellStatusItem Number="3" Name="Ячейка 3" State="в наличии" Charge="заряжен на 100%" />
+                                <local:CellStatusItem Number="2" Name="Ячейка 3" State="в наличии" Charge="заряжен на 100%" />
+                                <local:CellStatusItem Number="2" Name="Ячейка 3" State="в наличии" Charge="заряжен на 100%" />
+                                <local:CellStatusItem Number="2" Name="Ячейка 3" State="в наличии" Charge="заряжен на 100%" />
+                                <local:CellStatusItem Number="2" Name="Ячейка 3" State="в наличии" Charge="заряжен на 100%" />
+                                <local:CellStatusItem Number="2" Name="Ячейка 3" State="в наличии" Charge="заряжен на 100%" />
+                                <local:CellStatusItem Number="2" Name="Ячейка 3" State="в наличии" Charge="заряжен на 100%" />
+                                <local:CellStatusItem Number="2" Name="Ячейка 3" State="в наличии" Charge="заряжен на 100%" />
+                                <local:CellStatusItem Number="2" Name="Ячейка 3" State="в наличии" Charge="заряжен на 100%" />
+                                <local:CellStatusItem Number="2" Name="Ячейка 3" State="в наличии" Charge="заряжен на 100%" />
+                                <local:CellStatusItem Number="2" Name="Ячейка 3" State="в наличии" Charge="заряжен на 100%" />
+                                <local:CellStatusItem Number="2" Name="Ячейка 3" State="в наличии" Charge="заряжен на 100%" />
+                                <local:CellStatusItem Number="2" Name="Ячейка 3" State="в наличии" Charge="заряжен на 100%" />
+                                <local:CellStatusItem Number="2" Name="Ячейка 3" State="в наличии" Charge="заряжен на 100%" />
+                                <local:CellStatusItem Number="2" Name="Ячейка 3" State="в наличии" Charge="заряжен на 100%" />
+                                <local:CellStatusItem Number="2" Name="Ячейка 3" State="в наличии" Charge="заряжен на 100%" />
+                                <local:CellStatusItem Number="2" Name="Ячейка 3" State="в наличии" Charge="заряжен на 100%" />
+                                <local:CellStatusItem Number="2" Name="Ячейка 3" State="в наличии" Charge="заряжен на 100%" />
+                                <local:CellStatusItem Number="2" Name="Ячейка 3" State="в наличии" Charge="заряжен на 100%" />
+                                <local:CellStatusItem Number="2" Name="Ячейка 3" State="в наличии" Charge="заряжен на 100%" />
+                                <local:CellStatusItem Number="2" Name="Ячейка 3" State="в наличии" Charge="заряжен на 100%" />
+                                <local:CellStatusItem Number="2" Name="Ячейка 3" State="в наличии" Charge="заряжен на 100%" />
+                                <local:CellStatusItem Number="2" Name="Ячейка 3" State="в наличии" Charge="заряжен на 100%" />
+                                <local:CellStatusItem Number="2" Name="Ячейка 3" State="в наличии" Charge="заряжен на 100%" />
+                                <local:CellStatusItem Number="2" Name="Ячейка 4" State="в наличии" Charge="заряжен на 100%" />
+                            </collections:ArrayList>
+                            <Style TargetType="{x:Type DataGridCell}">
+                                <Setter Property="FontSize" Value="18.00"></Setter>
+                                <Setter Property="BorderThickness" Value="0"/>
+                                <Setter Property="FontFamily" Value="Calibri Light"></Setter>
+                                <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                                <Setter Property="Foreground" Value="#ff3c5466"></Setter>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type DataGridCell}">
+                                            <Grid Background="{TemplateBinding Background}">
+                                                <ContentPresenter VerticalAlignment="Center" />
+                                            </Grid>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="Background" Value="Transparent" />
+                                <Setter Property="BorderBrush" Value="Transparent" />
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Background" Value="Transparent" />
+                                        <Setter Property="BorderBrush" Value="Transparent" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                            <Style TargetType="{x:Type DataGridRow}">
+                                <Style.Setters>
+                                    <Setter Property="BorderBrush" Value="#ffedeef5"></Setter>
+                                    <Setter Property="BorderThickness" Value="0,0,0,1"></Setter>
+                                    <Setter Property="Height" Value="42"></Setter>
+                                    <Setter Property="Width" Value="542"></Setter>
+                                    <Setter Property="Margin" Value="0,0,65,0"></Setter>
+                                    <Setter Property="Background" Value="White" />
+                                </Style.Setters>
+
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Background" Value="White" />
+                                        <Setter Property="BorderBrush" Value="#ffedeef5" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.Resources>
+                        <DataGrid.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel MaxHeight="600" Orientation="Vertical" IsItemsHost="True"/>
+                            </ItemsPanelTemplate>
+                        </DataGrid.ItemsPanel>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Width="180" Binding="{Binding Path=Name}" />
+                            <DataGridTextColumn Width="180" Binding="{Binding Path=State}" />
+                            <DataGridTextColumn Width="180" Binding="{Binding Path=Charge}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <!--<WrapPanel Width="1180" Height="600" HorizontalAlignment="Center">
+                        <Grid Background="White" Width="543">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="46"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <TextBlock Padding="5" VerticalAlignment="Center" TextAlignment="Center" Grid.Row="0" Grid.Column="0" FontFamily="Calibri Light" FontSize="18.00" Foreground="#ff084e68">Ячейка 1</TextBlock>
+                            <TextBlock Padding="5" VerticalAlignment="Center" TextAlignment="Center" Grid.Row="0" Grid.Column="1" FontFamily="Calibri Light" FontSize="18.00" Foreground="#ff084e68">в наличии</TextBlock>
+                            <TextBlock Padding="5" VerticalAlignment="Center" TextAlignment="Center" Grid.Row="0" Grid.Column="2" FontFamily="Calibri Light" FontSize="18.00" Foreground="#ff084e68">заряжен на 100%</TextBlock>
+                        </Grid>
+                    </WrapPanel>-->
+                </Grid>
+
+                <Grid Canvas.Top="76" Width="1280">
+                    <!-- заголовок -->
+                    <TextBlock Foreground="#ffffffff" HorizontalAlignment="Center" FontSize="36.00" FontFamily="Calibri Light">Состояние мобильного устройства</TextBlock>
+                </Grid>
+            </Canvas>
+
+        </Canvas>
+        <Canvas x:Name="CellWindow" d:IsHidden="true">
+            <Path Opacity="0.2" Fill="#ff111213" Data="F1 M 3924.834,1417.214 L 3204.834,1417.214 L 3204.834,137.214 L 3924.834,137.214 L 3924.834,1417.214 Z" Height="800" Stretch="Fill" Width="1280"/>
+
+            <Grid Width="1280" Height="800">
+                <Canvas Width="655.000" Height="610.000" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                    <Path Data="F1 M 321.113,1087.531 L 976.553,1087.531 L 976.553,1197.781 L 321.113,1197.781 L 321.113,1087.531 Z" Height="110" Stretch="Fill" Width="655">
+                        <Path.Fill>
+                            <LinearGradientBrush MappingMode="Absolute" StartPoint="54.612,-1174.656" EndPoint="710.053,-1174.656">
+                                <LinearGradientBrush.GradientStops>
+                                    <GradientStop Offset="0.00" Color="#ff009cc6"/>
+                                    <GradientStop Offset="0.82" Color="#ff0080b9"/>
+                                </LinearGradientBrush.GradientStops>
+                                <LinearGradientBrush.Transform>
+                                    <MatrixTransform Matrix="1.000,0.000,-0.000,-1.000,266.500,-32.000" />
+                                </LinearGradientBrush.Transform>
+                            </LinearGradientBrush>
+                        </Path.Fill>
+                    </Path>
+                    <Grid Width="655" Canvas.Top="30">
+                        <Grid Width="655" HorizontalAlignment="Center">
+                            <TextBlock x:Name="CellName" HorizontalAlignment="Center" Foreground="#ffffffff" FontSize="36.00" FontFamily="Calibri Light" Text="Ячейка 1"/>
+                        </Grid>
+                    </Grid>
+                    <Button x:Name="BtnClose" Canvas.Top="40" Canvas.Left="600" Click="BtnCellDetailClose_Click">
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="Transparent">
+                                    <!-- кнопка крестик (закрыть) -->
+                                    <Path Fill="#ffffffff" Data="F1 M 677.269,45.115 L 675.139,43.000 L 665.116,53.023 L 655.094,43.000 L 652.979,45.115 L 662.812,55.000 L 652.964,64.885 L 655.094,67.000 L 665.116,56.977 L 675.139,67.000 L 677.254,64.885 L 667.421,55.000 L 677.269,45.115 Z" Height="25" Canvas.Left="652" Stretch="Fill" Canvas.Top="42" Width="25"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <Grid Width="655" Canvas.Top="110">
+                        <Grid Width="655" Height="500" HorizontalAlignment="Center" Background="White">
+                            <StackPanel Margin="40,50,40,0">
+                                <TextBlock Height="60" FontSize="32.00" FontFamily="Calibri" Foreground="#ff004c66">
+                                <Run FontWeight="Light" Text="Модель:" /> <Run FontWeight="Bold" x:Name="CellModel">123</Run>
+                                </TextBlock>
+                                <TextBlock Height="60" FontSize="32.00" FontFamily="Calibri" Foreground="#ff004c66">
+                                <Run FontWeight="Light" Text="Серийный номер:" /> <Run FontWeight="Bold" x:Name="CellSerial">123</Run>
+                                </TextBlock>
+                                <TextBlock Height="60" FontSize="32.00" FontFamily="Calibri" Foreground="#ff004c66">
+                                <Run FontWeight="Light" Text="Местонахождение:" /> <Run FontWeight="Bold" x:Name="CellPlace">123</Run>
+                                </TextBlock>
+                                <TextBlock Height="60" FontSize="32.00" FontFamily="Calibri" Foreground="#ff004c66">
+                                <Run FontWeight="Light" Text="Заряжен:" /> <Run FontWeight="Bold" x:Name="CellCharge">123</Run>
+                                </TextBlock>
+                                <TextBlock Height="60" FontSize="32.00" FontFamily="Calibri" Foreground="#ff004c66">
+                                <Run FontWeight="Light" Text="Статус:" /> <Run FontWeight="Bold" x:Name="CellStatus">123</Run>
+                                </TextBlock>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                    <Button Content="Открыть ячейку" Height="88" Width="457" Canvas.Left="100" Canvas.Top="480" Click="BtnOpen_Click" Style="{DynamicResource ButtonAdminOpenStyle}"/>
+                </Canvas>
+            </Grid>
+        </Canvas>
+
+        <Canvas x:Name="ClearDbConfirmWindow" d:IsHidden="true">
+            <Path Opacity="0.2" Fill="#ff111213" Data="F1 M 3924.834,1417.214 L 3204.834,1417.214 L 3204.834,137.214 L 3924.834,137.214 L 3924.834,1417.214 Z" Height="800" Stretch="Fill" Width="1280"/>
+
+            <Grid Width="1280" Height="800">
+                <Canvas Width="655.000" Height="550.000" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                    <Path Data="F1 M 321.113,1087.531 L 976.553,1087.531 L 976.553,1197.781 L 321.113,1197.781 L 321.113,1087.531 Z" Height="110" Stretch="Fill" Width="655">
+                        <Path.Fill>
+                            <LinearGradientBrush MappingMode="Absolute" StartPoint="54.612,-1174.656" EndPoint="710.053,-1174.656">
+                                <LinearGradientBrush.GradientStops>
+                                    <GradientStop Offset="0.00" Color="#ff009cc6"/>
+                                    <GradientStop Offset="0.82" Color="#ff0080b9"/>
+                                </LinearGradientBrush.GradientStops>
+                                <LinearGradientBrush.Transform>
+                                    <MatrixTransform Matrix="1.000,0.000,-0.000,-1.000,266.500,-32.000" />
+                                </LinearGradientBrush.Transform>
+                            </LinearGradientBrush>
+                        </Path.Fill>
+                    </Path>
+                    <Grid Width="655" Canvas.Top="30">
+                        <Grid Width="655" HorizontalAlignment="Center">
+                            <TextBlock HorizontalAlignment="Center" Foreground="#ffffffff" FontSize="36.00" FontFamily="Calibri Light" Text="Подтверждение"/>
+                        </Grid>
+                    </Grid>
+                    <Button x:Name="BtnCloseConfirm" Canvas.Top="40" Canvas.Left="600" Click="BtnCancelConfirm_OnClick">
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="Transparent">
+                                    <!-- кнопка крестик (закрыть) -->
+                                    <Path Fill="#ffffffff" Data="F1 M 677.269,45.115 L 675.139,43.000 L 665.116,53.023 L 655.094,43.000 L 652.979,45.115 L 662.812,55.000 L 652.964,64.885 L 655.094,67.000 L 665.116,56.977 L 675.139,67.000 L 677.254,64.885 L 667.421,55.000 L 677.269,45.115 Z" Height="25" Canvas.Left="652" Stretch="Fill" Canvas.Top="42" Width="25"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <Grid Width="655" Canvas.Top="110">
+                        <Grid Width="655" Height="440" HorizontalAlignment="Center" Background="White">
+                            <TextBlock HorizontalAlignment="Center" TextAlignment="Center" VerticalAlignment="Top" Margin="0,50,0,0" Foreground="#ff004c66" FontSize="36.00" FontFamily="Calibri Light" Text="Вы  действительно хотите &#13;&#10; очистить БД?" Height="104" Width="540" />
+                        </Grid>
+                    </Grid>
+                    <Button x:Name="BtnOkConfirm" Content="Да" Height="88" Width="457" Canvas.Left="100" Canvas.Top="300" Click="BtnOkConfirm_OnClick" Style="{DynamicResource ButtonAdminOpenStyle}"/>
+                    <Button x:Name="BtnCancelConfirm" Content="Нет" Height="88" Width="457" Canvas.Left="100" Canvas.Top="420" Click="BtnCancelConfirm_OnClick" Style="{DynamicResource ButtonAdminOpenStyle}"/>
+                </Canvas>
+            </Grid>
+        </Canvas>
+
+        <Canvas x:Name="UncloseableMsgBox" d:IsHidden="true">
+            <!-- Слой 6/подтверждение действия/<Прямоугольник> -->
+            <Path Opacity="0.2" Fill="#ff111213" Data="F1 M 3924.834,1417.214 L 3204.834,1417.214 L 3204.834,137.214 L 3924.834,137.214 L 3924.834,1417.214 Z" Height="800" Stretch="Fill" Width="1280"/>
+
+            <!-- Слой 6/подтверждение действия/<Прямоугольник> -->
+            <Path Fill="#ffffffff" Data="F1 M 3828.834,961.214 L 3324.834,961.214 L 3324.834,457.214 L 3828.834,457.214 L 3828.834,961.214 Z" Canvas.Left="388" Canvas.Top="148" Height="504" Stretch="Fill" Width="504"/>
+
+            <!-- Слой 6/подтверждение действия/Ошибка авторизации -->
+            <TextBlock TextAlignment="Center" x:Name="UMsgBoxTitle" Foreground="#ff004c66" Canvas.Left="399" Canvas.Top="382" FontSize="39.00" FontFamily="Calibri Light" Width="480">Ожидание</TextBlock>
+
+            <!-- Слой 6/подтверждение действия/Не удалось считать штрих-код -->
+            <TextBlock TextWrapping="Wrap" TextAlignment="Center" x:Name="UMsgBoxMessage" Foreground="#ff004c66" Canvas.Left="399" Canvas.Top="439" FontSize="31.00" FontFamily="Calibri Light" Width="480" Height="112">Идет процесс очистки БД</TextBlock>
+
+            <Canvas>
+
+                <!-- Слой 6/подтверждение действия/<Группа>/<Эллипс> -->
+                <Path StrokeThickness="3.0" Stroke="#ff194180" StrokeMiterLimit="1.0" Data="F1 M 3644.588,579.759 C 3644.588,617.266 3614.183,647.671 3576.676,647.671 C 3539.169,647.671 3508.763,617.266 3508.763,579.759 C 3508.763,542.252 3539.169,511.846 3576.676,511.846 C 3614.183,511.846 3644.588,542.252 3644.588,579.759 Z" Canvas.Left="565" Canvas.Top="198" Height="151" Stretch="Fill" Width="148"/>
+
+                <!-- Слой 6/подтверждение действия/<Группа>/<Составной контур> -->
+                <Path Fill="#ff194180" Data="F1 M 3571.902,595.999 L 3569.937,528.609 L 3583.415,528.609 L 3581.449,595.999 L 3571.902,595.999 Z M 3568.393,616.076 C 3568.393,611.022 3571.902,607.371 3576.675,607.371 C 3581.730,607.371 3584.959,611.022 3584.959,616.076 C 3584.959,620.990 3581.730,624.780 3576.675,624.780 C 3571.762,624.780 3568.393,620.990 3568.393,616.076" Canvas.Left="629" Canvas.Top="218" Height="107" Stretch="Fill" Width="17"/>
+
+            </Canvas>
+
+            <Button Visibility="Hidden" x:Name="ButtonOkUMsgBox" Content="ОК" Height="87" Width="430" Canvas.Left="426" Canvas.Top="519" Click="ButtonOkUncloseableMsgBox_OnClick" Style="{DynamicResource ButtonMsgboxOkStyle}"/>
+
+        </Canvas>
+
+        <Canvas x:Name="CellOpenReasonWindow" Visibility="Visible">
+            <Path Opacity="0.2" Fill="#ff111213" Data="F1 M 3924.834,1417.214 L 3204.834,1417.214 L 3204.834,137.214 L 3924.834,137.214 L 3924.834,1417.214 Z" Height="800" Stretch="Fill" Width="1280"/>
+
+            <Grid Width="1280" Height="800">
+                <Canvas Width="655.000" Height="410.000" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                    <Path Data="F1 M 321.113,1087.531 L 976.553,1087.531 L 976.553,1197.781 L 321.113,1197.781 L 321.113,1087.531 Z" Height="110" Stretch="Fill" Width="655">
+                        <Path.Fill>
+                            <LinearGradientBrush MappingMode="Absolute" StartPoint="54.612,-1174.656" EndPoint="710.053,-1174.656">
+                                <LinearGradientBrush.GradientStops>
+                                    <GradientStop Offset="0.00" Color="#ff009cc6"/>
+                                    <GradientStop Offset="0.82" Color="#ff0080b9"/>
+                                </LinearGradientBrush.GradientStops>
+                                <LinearGradientBrush.Transform>
+                                    <MatrixTransform Matrix="1.000,0.000,-0.000,-1.000,266.500,-32.000" />
+                                </LinearGradientBrush.Transform>
+                            </LinearGradientBrush>
+                        </Path.Fill>
+                    </Path>
+                    <Grid Width="655" Canvas.Top="30">
+                        <Grid Width="655" HorizontalAlignment="Center">
+                            <TextBlock x:Name="CellNameReason" HorizontalAlignment="Center" Foreground="#ffffffff" FontSize="36.00" FontFamily="Calibri Light" Text="Ячейка 1"/>
+                        </Grid>
+                    </Grid>
+
+                    <Grid Width="655" Canvas.Top="110">
+                        <Grid Width="655" Height="300" HorizontalAlignment="Center" Background="White">
+
+                        </Grid>
+                    </Grid>
+                    <Button x:Name="ReturnButton" Content="Вернуть" Height="88" Width="457" Canvas.Left="100" Canvas.Top="160" Click="BtnReturn_Click" Style="{DynamicResource ButtonAdminOpenStyle}"/>
+                    <Button x:Name="TakeButton" Content="Забрать" Height="88" Width="457" Canvas.Left="100" Canvas.Top="280" Click="BtnTake_Click" Style="{DynamicResource ButtonAdminOpenStyle}"/>
+                </Canvas>
+            </Grid>
+        </Canvas>
+    </Grid>
+</Page>

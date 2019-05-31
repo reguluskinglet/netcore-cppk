@@ -1,0 +1,14 @@
+{
+  "id": 1,
+  "routeName": "30อี",
+  "train": "Ýฯ2ฤ - 0008",
+  "plan": {
+    "dateStart": "2018-05-10T05:00:00Z",
+    "dateEnd": "2018-05-10T06:00:00Z"
+  },
+  "fact": {
+    "dateStart": "2018-05-10T05:00:00Z",
+    "dateEnd": "2018-05-10T06:00:00Z",
+    "canseled": false
+  }
+}

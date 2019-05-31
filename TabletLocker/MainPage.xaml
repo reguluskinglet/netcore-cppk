@@ -1,0 +1,266 @@
+﻿<Page x:Class="TabletLocker.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TabletLocker"
+      xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+      xmlns:utils="clr-namespace:TabletLocker.Utils"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="1280"
+      Stylus.IsFlicksEnabled="False"
+      Title="MainPage" Loaded="Page_Loaded">
+
+    <Grid>
+        <Canvas x:Name="MainCanvas" Background="White">
+            <Canvas.Effect>
+                <BlurEffect x:Name="MainCanvasBlur" Radius="0"/>
+            </Canvas.Effect>
+
+            <Canvas>
+
+                <!-- белый фон -->
+                <Path Fill="#ffffffff" Data="F1 M 0,800.000 L 1280,800.000 L 1280,00 L 0,0 L 0,800.000 Z"/>
+
+                <Canvas>
+
+                    <!-- верхний большой блок с синим градиентом -->
+                    <Path Data="F1 M 0,0.000 L 1280,0.000 L 1280,384.500 L 0,384.500 L 0,0.000 Z">
+                        <Path.Fill>
+                            <LinearGradientBrush MappingMode="Absolute" StartPoint="-1623.667,-192.250" EndPoint="-343.667,-192.250">
+                                <LinearGradientBrush.GradientStops>
+                                    <GradientStop Offset="0.00" Color="#ff009cc6"/>
+                                    <GradientStop Offset="0.82" Color="#ff0080b9"/>
+                                </LinearGradientBrush.GradientStops>
+                                <LinearGradientBrush.Transform>
+                                    <MatrixTransform Matrix="1.000,0.000,-0.000,-1.000,1632.000,0.000" />
+                                </LinearGradientBrush.Transform>
+                            </LinearGradientBrush>
+                        </Path.Fill>
+                    </Path>
+
+                    <!-- Поднесите считыватель к штрих-коду или введите штрих-код с клавиатуры -->
+                    <Grid Canvas.Top="208" Width="1280">
+                        <TextBlock x:Name="MainStatus" Foreground="#ffffffff" HorizontalAlignment="Center" TextAlignment ="Center" FontSize="40.00" FontFamily="Calibri Light">Поднесите считыватель к штрих-коду или введите <LineBreak/> штрих-код с клавиатуры</TextBlock>
+                    </Grid>
+                </Canvas>
+
+                <Canvas>
+
+                    <!-- sysbar -->
+                    <Path Fill="#ff0084c2" Data="F1 M 1280,40.000 L 0,40.000 L 0,0.000 L 1280,0.000 L 1280,40.000 Z"/>
+
+                    <!-- время -->
+                    <TextBlock x:Name="TimeMark" Foreground="#ffffffff" Canvas.Left="38" Canvas.Top="9" FontSize="21.58" FontFamily="Roboto Medium">12:30</TextBlock>
+
+                    <!-- дата -->
+                    <TextBlock x:Name="DateMark" Foreground="#ffffffff" Canvas.Left="1130" Canvas.Top="9" FontSize="21.58" FontFamily="Roboto Medium">05.04.2018</TextBlock>
+
+                </Canvas>
+
+                <Canvas>
+
+                    <!-- Слой 1/top/<Контур> -->
+                    <Path Opacity="0.3" Fill="#ffffffff" Data="F1 M 12803,40.000 L 0,40.000 L 0,152.000 L 1280,152.000 L 1280,40.000 Z"/>
+
+                    <Button x:Name="BtnBack" Canvas.Left="1200" Canvas.Top="75" Click="BtnBack_Click">
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="Transparent">
+                                    <Grid>
+                                        <Path Margin="10,0,0,0" Fill="#ffffffff" Data="F1 M 1229.720,87.158 L 1226.248,83.685 L 1213.933,96.000 L 1226.248,108.315 L 1229.720,104.842 L 1223.366,98.463 L 1247.183,98.463 L 1247.183,93.537 L 1223.366,93.537 L 1229.720,87.158 Z" Height="24.668" Stretch="Fill" Width="33.416" />
+                                        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Data="F1 M 1246.469,104.333 L 1246.469,109.473 C 1246.469,113.408 1243.280,116.597 1239.345,116.597 L 1211.831,116.597 C 1207.896,116.597 1204.707,113.408 1204.707,109.473 L 1204.707,81.958 C 1204.707,78.024 1207.896,74.834 1211.831,74.834 L 1239.345,74.834 C 1243.280,74.834 1246.469,78.024 1246.469,81.958 L 1246.469,88.333" Height="42" Stretch="Fill" Width="42.501"/>
+                                    </Grid>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+                    <Canvas>
+
+                        <!-- Слой 1/<Группа>/<Контур> -->
+                        <Path Opacity="0.5" Fill="#ffffffff" Data="F1 M 66.166,76.061 C 68.910,74.811 71.954,74.108 75.161,74.108 C 85.042,74.108 93.401,80.725 96.056,89.757 C 97.575,91.329 98.907,93.006 100.020,94.781 L 100.038,94.795 C 99.464,81.569 88.526,70.983 75.161,70.983 C 69.827,70.983 64.885,72.675 60.830,75.544 C 62.635,75.648 64.416,75.822 66.166,76.061"/>
+
+                        <!-- Слой 1/<Группа>/<Контур> -->
+                        <Path Opacity="0.5" Fill="#ffffffff" Data="F1 M 92.544,111.172 L 92.409,111.173 L 90.639,111.173 C 86.688,115.192 81.209,117.656 75.161,117.656 C 63.154,117.656 53.383,107.891 53.383,95.883 C 53.383,91.492 54.694,87.406 56.937,83.982 C 55.937,83.831 54.923,83.708 53.901,83.610 C 53.773,83.602 53.645,83.600 53.518,83.593 C 51.447,87.223 50.257,91.418 50.257,95.888 C 50.257,109.618 61.430,120.791 75.161,120.791 C 83.405,120.791 90.724,116.757 95.259,110.566 C 94.401,110.885 93.493,111.094 92.544,111.172"/>
+
+                        <!-- Слой 1/<Группа>/<Контур> -->
+                        <Path Opacity="0.5" Fill="#ffffffff" Data="F1 M 86.769,99.116 C 85.956,97.330 84.892,95.767 83.592,94.204 L 59.516,94.204 L 61.402,99.116 L 86.769,99.116 Z"/>
+
+                        <!-- Слой 1/<Группа>/<Контур> -->
+                        <Path Opacity="0.5" Fill="#ffffffff" Data="F1 M 97.485,97.003 L 97.483,97.001 C 91.102,86.329 75.256,78.747 56.752,78.747 C 53.266,78.747 49.793,79.018 46.427,79.553 L 46.491,80.267 C 47.706,80.203 48.923,80.174 50.112,80.174 C 66.873,80.174 81.673,86.135 88.784,94.744 L 88.782,94.742 C 89.593,95.725 91.133,97.759 91.702,99.108 C 91.829,99.411 92.059,99.988 92.143,100.634 C 92.307,101.876 90.959,103.135 89.424,103.135 L 85.074,103.135 C 85.087,103.135 85.104,103.216 85.118,103.256 C 85.104,103.216 85.087,103.135 85.074,103.135 L 63.026,103.135 L 64.911,107.824 L 91.122,107.824 C 90.869,107.824 90.869,107.824 91.122,107.824 L 92.272,107.824 C 95.860,107.601 98.680,104.553 98.680,100.892 C 98.680,99.242 97.620,97.231 97.485,97.003"/>
+
+                    </Canvas>
+
+                    <Button x:Name="AdminLoginButton" Canvas.Top="76" Canvas.Left="1120" Click="Button_Click_AdminLogin">
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="Transparent">
+                                    <!-- Слой 1/top/<Составной контур> -->
+                                    <!--<Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Data="F1 M 69.806,101.634 C 63.013,101.634 49.452,105.043 49.452,111.811 L 49.452,116.899 L 90.159,116.899 L 90.159,111.811 C 90.159,105.043 76.599,101.634 69.806,101.634 Z M 69.806,96.546 C 75.429,96.546 79.983,91.992 79.983,86.369 C 79.983,80.747 75.429,76.192 69.806,76.192 C 64.183,76.192 59.629,80.747 59.629,86.369 C 59.629,91.992 64.183,96.546 69.806,96.546 Z" Height="41" Stretch="Fill" Width="41"/>-->
+                                    <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Data="F1 M 1138.354,101.634 C 1131.561,101.634 1118.001,105.043 1118.001,111.811 L 1118.001,116.899 L 1158.708,116.899 L 1158.708,111.811 C 1158.708,105.043 1145.147,101.634 1138.354,101.634 Z M 1138.354,96.546 C 1143.977,96.546 1148.531,91.992 1148.531,86.369 C 1148.531,80.747 1143.977,76.192 1138.354,76.192 C 1132.732,76.192 1128.178,80.747 1128.178,86.369 C 1128.178,91.992 1132.732,96.546 1138.354,96.546 Z" Height="42" Stretch="Fill" Width="42"/>
+
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+                </Canvas>
+
+                <Button Content="Взять&#10;устройство" x:Name="BtnTake" Width="348" Height="237" Canvas.Top="511" Style="{DynamicResource ButtonStyleTake1}" Click="BtnTake_Click" Canvas.Left="90" IsEnabled="False" />
+
+                <Button Content="Вернуть&#10;устройство" x:Name="BtnReturn" Width="346" Height="238" Canvas.Left="476" Canvas.Top="511" Style="{DynamicResource ButtonStyleReturn1}" Click="BtnReturn_Click" IsEnabled="False" d:IsHidden="True"/>
+
+                <Button Content="Сообщить об проблеме" x:Name="BtnReport" Width="345" Height="238" Canvas.Top="511" Style="{DynamicResource ButtonStyleReport1}" Click="BtnReport_Click" IsEnabled="False" Canvas.Left="855" />
+
+                <Canvas>
+
+                    <!-- Слой 1/шк с клавиатуры/<Прямоугольник> -->
+                    <Path StrokeThickness="1.0" Stroke="#ff9eaab7" StrokeMiterLimit="1.0" Fill="#fff8fbfe" Data="F1 M 941.191,477.625 L 325.809,477.625 L 325.809,408.250 L 941.191,408.250 L 941.191,477.625 Z" Height="70" Stretch="Fill" Width="580" Canvas.Left="320" Canvas.Top="411"/>
+
+                    <Button x:Name="BtnBarcodeEnter" Click="BtnBarcodeEnter_Click" Canvas.Top="411" Canvas.Left="899" Width="72" Height="70" Style="{DynamicResource ButtonStyleBarcodeEnter}"></Button>
+
+                    <!-- Слой 1/шк с клавиатуры/Ввод ШК с клавиатуры -->
+                    <xctk:WatermarkTextBox utils:TouchScreenKeyboard.TouchScreenKeyboard="true" Watermark="Ввод ШК с клавиатуры" x:Name="BarcodeInput" Foreground="#ff004c66" Canvas.Left="357" Canvas.Top="418" FontSize="36.00" FontFamily="Calibri Light" Width="511" Height="55" Background="#FFF8FBFE" BorderBrush="#FF9EAAB7" BorderThickness="0"></xctk:WatermarkTextBox>
+                </Canvas>
+
+                <Grid Canvas.Top="76" Width="1280">
+                    <!-- заголовок -->
+                    <TextBlock Foreground="#ffffffff" HorizontalAlignment="Center" FontSize="36.00" FontFamily="Calibri Light">Главная форма</TextBlock>
+                </Grid>
+                <Grid Canvas.Top="764" Width="1280">
+                    <TextBlock Foreground="#ff004C64" HorizontalAlignment="Center" FontSize="18.00" FontFamily="Calibri Light">АСПОЖС ЗАО «Центральная ППК»</TextBlock>
+                </Grid>
+            </Canvas>
+
+        </Canvas>
+
+        <Canvas x:Name="MsgBox" d:IsHidden="true">
+            <!-- Слой 6/подтверждение действия/<Прямоугольник> -->
+            <Path Opacity="0.2" Fill="#ff111213" Data="F1 M 3924.834,1417.214 L 3204.834,1417.214 L 3204.834,137.214 L 3924.834,137.214 L 3924.834,1417.214 Z" Height="800" Stretch="Fill" Width="1280"/>
+
+            <!-- Слой 6/подтверждение действия/<Прямоугольник> -->
+            <Path Fill="#ffffffff" Data="F1 M 3828.834,961.214 L 3324.834,961.214 L 3324.834,457.214 L 3828.834,457.214 L 3828.834,961.214 Z" Canvas.Left="388" Canvas.Top="148" Height="504" Stretch="Fill" Width="504"/>
+
+            <!-- Слой 6/подтверждение действия/Ошибка авторизации -->
+            <TextBlock TextAlignment="Center" x:Name="MsgBoxTitle" Foreground="#ff004c66" Canvas.Left="389" Canvas.Top="382" FontSize="39.00" FontFamily="Calibri Light" Width="501">Ошибка авторизации</TextBlock>
+
+            <!-- Слой 6/подтверждение действия/Не удалось считать штрих-код -->
+            <TextBlock TextAlignment="Center"  x:Name="MsgBoxMessage" Foreground="#ff004c66" Canvas.Left="389" Canvas.Top="439" FontSize="31.00" FontFamily="Calibri Light" Width="501">Не удалось считать штрихкод</TextBlock>
+
+            <Button Content="ОК" Height="87" Width="430" Canvas.Left="426" Canvas.Top="519" Click="Button_Click_Msgbox_Return" Style="{DynamicResource ButtonMsgboxOkStyle}"/>
+
+            <Canvas>
+
+                <!-- Слой 6/подтверждение действия/<Группа>/<Эллипс> -->
+                <Path StrokeThickness="3.0" Stroke="#ff194180" StrokeMiterLimit="1.0" Data="F1 M 3644.588,579.759 C 3644.588,617.266 3614.183,647.671 3576.676,647.671 C 3539.169,647.671 3508.763,617.266 3508.763,579.759 C 3508.763,542.252 3539.169,511.846 3576.676,511.846 C 3614.183,511.846 3644.588,542.252 3644.588,579.759 Z" Canvas.Left="565" Canvas.Top="198" Height="151" Stretch="Fill" Width="148"/>
+
+                <!-- Слой 6/подтверждение действия/<Группа>/<Составной контур> -->
+                <Path Fill="#ff194180" Data="F1 M 3571.902,595.999 L 3569.937,528.609 L 3583.415,528.609 L 3581.449,595.999 L 3571.902,595.999 Z M 3568.393,616.076 C 3568.393,611.022 3571.902,607.371 3576.675,607.371 C 3581.730,607.371 3584.959,611.022 3584.959,616.076 C 3584.959,620.990 3581.730,624.780 3576.675,624.780 C 3571.762,624.780 3568.393,620.990 3568.393,616.076" Canvas.Left="629" Canvas.Top="218" Height="107" Stretch="Fill" Width="17"/>
+
+            </Canvas>
+
+        </Canvas>
+
+        <Canvas x:Name="UncloseableMsgBox" d:IsHidden="true">
+            <!-- Слой 6/подтверждение действия/<Прямоугольник> -->
+            <Path Opacity="0.2" Fill="#ff111213" Data="F1 M 3924.834,1417.214 L 3204.834,1417.214 L 3204.834,137.214 L 3924.834,137.214 L 3924.834,1417.214 Z" Height="800" Stretch="Fill" Width="1280"/>
+
+            <!-- Слой 6/подтверждение действия/<Прямоугольник> -->
+            <Path Fill="#ffffffff" Data="F1 M 3828.834,961.214 L 3324.834,961.214 L 3324.834,457.214 L 3828.834,457.214 L 3828.834,961.214 Z" Canvas.Left="388" Canvas.Top="148" Height="504" Stretch="Fill" Width="504"/>
+
+            <!-- Слой 6/подтверждение действия/Ошибка авторизации -->
+            <TextBlock TextAlignment="Center" x:Name="UMsgBoxTitle" Foreground="#ff004c66" Canvas.Left="399" Canvas.Top="382" FontSize="39.00" FontFamily="Calibri Light" Width="480">Ошибка авторизации</TextBlock>
+
+            <!-- Слой 6/подтверждение действия/Не удалось считать штрих-код -->
+            <TextBlock TextWrapping="Wrap" TextAlignment="Center" x:Name="UMsgBoxMessage" Foreground="#ff004c66" Canvas.Left="399" Canvas.Top="439" FontSize="31.00" FontFamily="Calibri Light" Width="480" Height="112">Не удалось считать штрихкод</TextBlock>
+
+            <Canvas>
+
+                <!-- Слой 6/подтверждение действия/<Группа>/<Эллипс> -->
+                <Path StrokeThickness="3.0" Stroke="#ff194180" StrokeMiterLimit="1.0" Data="F1 M 3644.588,579.759 C 3644.588,617.266 3614.183,647.671 3576.676,647.671 C 3539.169,647.671 3508.763,617.266 3508.763,579.759 C 3508.763,542.252 3539.169,511.846 3576.676,511.846 C 3614.183,511.846 3644.588,542.252 3644.588,579.759 Z" Canvas.Left="565" Canvas.Top="198" Height="151" Stretch="Fill" Width="148"/>
+
+                <!-- Слой 6/подтверждение действия/<Группа>/<Составной контур> -->
+                <Path Fill="#ff194180" Data="F1 M 3571.902,595.999 L 3569.937,528.609 L 3583.415,528.609 L 3581.449,595.999 L 3571.902,595.999 Z M 3568.393,616.076 C 3568.393,611.022 3571.902,607.371 3576.675,607.371 C 3581.730,607.371 3584.959,611.022 3584.959,616.076 C 3584.959,620.990 3581.730,624.780 3576.675,624.780 C 3571.762,624.780 3568.393,620.990 3568.393,616.076" Canvas.Left="629" Canvas.Top="218" Height="107" Stretch="Fill" Width="17"/>
+
+            </Canvas>
+
+        </Canvas>
+
+        <Canvas x:Name="TroubleInputWindow" d:IsHidden="true">
+            <Path Opacity="0.2" Fill="#ff111213" Data="F1 M 3924.834,1417.214 L 3204.834,1417.214 L 3204.834,137.214 L 3924.834,137.214 L 3924.834,1417.214 Z" Height="800" Stretch="Fill" Width="1280"/>
+            <Grid Width="1280" Height="800">
+                <Canvas Width="720.000" Height="720.000" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                    <Canvas>
+
+                        <!-- белый фон окна -->
+                        <Path Fill="#ffffffff" Data="F1 M 720.000,720.000 L 0.000,720.000 L 0.000,0.000 L 720.000,0.000 L 720.000,720.000 Z"/>
+
+                        <!-- синий заголовок окна -->
+                        <Path Data="F1 M 720.000,233.500 L 0.000,233.500 L 0.000,0.000 L 720.000,0.000 L 720.000,233.500 Z">
+                            <Path.Fill>
+                                <LinearGradientBrush MappingMode="Absolute" StartPoint="295.167,-152.750" EndPoint="1015.167,-152.750">
+                                    <LinearGradientBrush.GradientStops>
+                                        <GradientStop Offset="0.00" Color="#ff009bc5"/>
+                                        <GradientStop Offset="0.82" Color="#ff007fb8"/>
+                                    </LinearGradientBrush.GradientStops>
+                                    <LinearGradientBrush.Transform>
+                                        <MatrixTransform Matrix="1.000,0.000,-0.000,-1.000,-295.167,-36.000" />
+                                    </LinearGradientBrush.Transform>
+                                </LinearGradientBrush>
+                            </Path.Fill>
+                        </Path>
+
+                        <ScrollViewer ManipulationBoundaryFeedback="TroubleSv_ManipulationBoundaryFeedback" x:Name="TroubleSv" CanContentScroll="True" Canvas.Left="30" Canvas.Top="260" PanningMode="VerticalOnly" VerticalScrollBarVisibility="Visible">
+                            <StackPanel x:Name="TroubleSvp" Width="655" Height="310" Background="White">
+                                <!--
+                                <RadioButton x:Name="Trouble1" Style="{DynamicResource TroubleButtonStyle}"  Height="50" Width="658" FontSize="30.00" FontFamily="Calibri Light" Checked="Trouble1_Checked">Разбит экран 1</RadioButton>
+                                <RadioButton x:Name="Trouble2" Style="{DynamicResource TroubleButtonStyle}"  Height="50" Width="658" FontSize="30.00" FontFamily="Calibri Light" Checked="Trouble1_Checked">Разбит экран 2</RadioButton>
+                                <RadioButton x:Name="Trouble3" Style="{DynamicResource TroubleButtonStyle}"  Height="50" Width="658" FontSize="30.00" FontFamily="Calibri Light" Checked="Trouble1_Checked">Разбит экран 3</RadioButton>
+                                <RadioButton x:Name="Trouble4" Style="{DynamicResource TroubleButtonStyle}"  Height="50" Width="658" FontSize="30.00" FontFamily="Calibri Light" Checked="Trouble1_Checked">Разбит экран 4</RadioButton>
+                                <RadioButton x:Name="Trouble5" Style="{DynamicResource TroubleButtonStyle}"  Height="50" Width="658" FontSize="30.00" FontFamily="Calibri Light" Checked="Trouble1_Checked">Разбит экран 5</RadioButton>
+                                <RadioButton x:Name="Trouble6" Style="{DynamicResource TroubleButtonStyle}"  Height="50" Width="658" FontSize="30.00" FontFamily="Calibri Light" Checked="Trouble1_Checked">Разбит экран 6</RadioButton>
+                                <RadioButton x:Name="Trouble7" Style="{DynamicResource TroubleButtonStyle}"  Height="50" Width="658" FontSize="30.00" FontFamily="Calibri Light" Checked="Trouble1_Checked">Разбит экран 7</RadioButton>
+                                <RadioButton x:Name="Trouble8" Style="{DynamicResource TroubleButtonStyle}"  Height="50" Width="658" FontSize="30.00" FontFamily="Calibri Light" Checked="Trouble1_Checked">Разбит экран 8</RadioButton>
+                                -->
+                            </StackPanel>
+                        </ScrollViewer>
+
+                        <Button x:Name="BtnClose" Canvas.Top="42" Canvas.Left="652" Click="BtnTroubleInputClose_Click">
+                            <Button.Template>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="Transparent">
+                                        <!-- кнопка крестик (закрыть) -->
+                                        <Path Fill="#ffffffff" Data="F1 M 677.269,45.115 L 675.139,43.000 L 665.116,53.023 L 655.094,43.000 L 652.979,45.115 L 662.812,55.000 L 652.964,64.885 L 655.094,67.000 L 665.116,56.977 L 675.139,67.000 L 677.254,64.885 L 667.421,55.000 L 677.269,45.115 Z" Height="25" Canvas.Left="652" Stretch="Fill" Canvas.Top="42" Width="25"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+
+                        <!-- В чём заключается проблема? -->
+                        <TextBlock Foreground="#ffffffff" Canvas.Left="302.138" Canvas.Top="72.090" FontSize="36.00" FontFamily="Calibri">В чём заключается</TextBlock>
+                        <TextBlock Foreground="#ffffffff" Canvas.Left="302.138" Canvas.Top="115.290" FontSize="36.00" FontFamily="Calibri">проблема?</TextBlock>
+
+                    </Canvas>
+
+                    <Button Content="Выбрать" x:Name="BtnSelect" Canvas.Left="32" Canvas.Top="600" Click="BtnTroubleInputSelect_Click" Height="89" Width="306" Style="{DynamicResource ButtonSelectStyle}" IsEnabled="False"/>
+
+                    <Button Content="Отмена" x:Name="BtnCancel" Canvas.Left="378" Canvas.Top="600" Click="BtnTroubleInputCancel_Click" Height="89" Width="306" Style="{DynamicResource ButtonCancelStyle}"></Button>
+
+                    <Canvas>
+
+                        <!-- значок восклицательный знак -->
+                        <Path StrokeThickness="5.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Data="F1 M 138.492,159.144 L 250.500,159.144 L 194.496,62.410 L 138.492,159.144 Z"/>
+
+                        <!-- Слой 1/<Группа>/<Составной контур> -->
+                        <Path Fill="#ffffffff" Data="F1 M 191.553,128.158 L 190.392,88.345 L 198.354,88.345 L 197.193,128.158 L 191.553,128.158 Z M 189.479,140.019 C 189.479,137.033 191.553,134.876 194.373,134.876 C 197.359,134.876 199.267,137.033 199.267,140.019 C 199.267,142.922 197.359,145.161 194.373,145.161 C 191.470,145.161 189.479,142.922 189.479,140.019"/>
+
+                    </Canvas>
+
+                </Canvas>
+            </Grid>
+        </Canvas>
+    </Grid>
+</Page>
+

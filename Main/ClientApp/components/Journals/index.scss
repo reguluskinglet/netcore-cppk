@@ -1,0 +1,188 @@
+﻿.task-history-block {
+    position: relative;
+    background: #e3ebf6;
+    padding: 8px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    width: 98%;
+
+    & .main-g-user {
+        position: relative;
+
+        & .g-user {
+            position: relative;
+        }
+
+        & .g-date {
+            position: relative;
+            font-size: 12px;
+        }
+
+        & .g-type-info {
+        }
+    }
+
+    & .main-g-type {
+        margin-top: 4px;
+
+        & b {
+            padding-right: 5px;
+        }
+    }
+}
+
+.g-tab-menu {
+    position: relative;
+    background: #fff;
+    left: -16px;
+    top: 4px;
+    width: 734px;
+    background: #fff;
+
+    &.g-tab-body {
+        position: inherit;
+        width: 100%;
+        margin-top: 16px;
+
+        & .g-tab-menu-item {
+            & .g-text {
+                font-size: 14px;
+            }
+        }
+    }
+
+    & .g-tab-menu-item {
+        position: relative;
+        text-align: center;
+        padding: 5px;
+        cursor: pointer;
+        display: inline-block;
+        width: 183px;
+        transition: color ease-in 0.3s;
+
+        &.activ {
+            border-bottom: 2px solid #0358a8;
+            color: #0358a8;
+        }
+
+        & .g-text {
+            position: relative;
+            font-size: 11px;
+            text-transform: uppercase;
+        }
+
+        & .g-icon {
+            position: relative;
+            font-size: 19px;
+        }
+    }
+}
+
+.g-data {
+    & h6.title {
+        padding-left: 0!important;
+    }
+}
+
+.dialog-task {
+
+    & .g-data {
+        border-top: 1px solid #cdced0;
+    }
+
+    & .g-field {
+        & .g-title {
+            width: 159px;
+        }
+    }
+
+    & .main-drop-down {
+        margin-top: 11px;
+    }
+
+    & .main-field-area {
+        margin-top: 29px;
+    }
+
+    & .g-main-file {
+        position: relative;
+        border-top: none;
+        margin-top: 17px;
+        padding: 5px;
+        height: 68px;
+        padding-left: 33px;
+
+        &.history {
+            border-top: none;
+            margin-top: inherit;
+            padding: inherit;
+            height: 59px;
+            padding-left: inherit;
+
+            & .g-file {
+                width: inherit;
+            }
+        }
+
+        & .icon-attach {
+            font-size: 20px;
+            color: #8bb0bf;
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 33px;
+            padding-top: 12px;
+            padding-left: 7px;
+        }
+
+        & .g-file {
+            position: relative;
+            width: 87px;
+            float: left;
+            padding: 5px;
+            background: #e3e3e3;
+            margin-right: 5px;
+
+            & img {
+                position: relative;
+                width: 64px;
+                height: 48px;
+                cursor: pointer;
+            }
+
+            & .main-g-icon {
+                position: relative;
+                width: 64px;
+                height: 48px;
+                background: #fff;
+
+                & .g-icon {
+                    position: relative;
+                    top: 5px;
+                    left: 16px
+                }
+
+                & .g-name {
+                    font-size: 11px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    position: relative;
+                    display: block;
+                    top: 8px;
+                    left: 3px;
+                }
+            }
+
+            & .icon-close {
+                position: absolute;
+                font-size: 16px;
+                right: 0;
+                color: #0458a8;
+                cursor: pointer;
+                top: 0;
+            }
+        }
+    }
+}

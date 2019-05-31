@@ -1,0 +1,152 @@
+﻿@import "../mixins";
+
+.menu-drop-down{
+    background: white;
+    position: absolute;
+    z-index: 100;
+    padding: 4px;
+    border: solid #aaa 1px;
+    top: 100%;
+    left: 1px;
+    display:none;
+
+    &.open{
+        display:block;
+    }
+
+    & li{
+        padding: 2px 3px;
+        font-size: 13rem;
+        font-weight: normal;
+        vertical-align: middle;
+        min-width: 150rem;
+
+        &:hover{
+            background-color: #eee;
+        }
+    }
+}
+
+.r-tool-bar{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 6px 5px;
+
+
+    & ul.r-tool-bar-items{
+
+        & li{
+            display: inline-block;
+            position: relative;
+            font-size: 13rem;
+            margin-left: 4px;
+
+
+
+            & .loading{
+                position: absolute;
+            }
+
+            & .bar-btn-load{
+                position: relative;
+                display: inline-block;
+                top: -16px;
+                left: 3px;
+            }
+
+            &.right{
+                float:right;
+                border:none;
+            }
+
+            & .tool-bar-menu{
+
+                &.disabled{
+                    background:#dddddd;
+                    color: rgba(0, 0, 0, 0.26);
+                    pointer-events: none;
+                    cursor: auto;
+                }
+
+                color: white;
+                background: linear-gradient(to bottom, #2398c5, #057ba8);
+                min-width: 90rem;
+                padding: 0 12rem;
+                border-radius: 0;
+                height: 26rem;
+
+                & .menu-drop-down{
+                    right: 0%;
+                    left: inherit;
+                    width: 100%;
+                    color: black;
+                    padding: 0;
+                    & li{
+                        width: 100%;
+                        min-width: 0;
+                        margin: 0;
+                        padding:0;
+                        & .items{
+                            padding: 3px 4px;
+                            display: block;
+                            color:black;
+                        }
+                    }
+                }
+
+                & .tool-bar-text{
+                    font-size: 14rem;
+                    font-family: Calibri, Arial, sans-serif;
+                    font-weight: 500;
+                    position: relative;
+                    display: inline-block;
+                    height: 26rem;
+                    line-height: 26rem;
+                    text-align: center;
+                    cursor: pointer;
+                    border: 0;
+                    outline: none;
+                }
+
+                
+                &:after{
+                    @include direction('asc',4px,7px)
+                }
+
+                /*& .tool-bar-menu-down{
+                    padding-right: 3rem;
+                    padding-left: 3rem;
+                    border-left: solid 1px transparent;
+                    border-right: solid 1px transparent;
+                    display:inline-block;
+                    position:relative;
+                }*/
+            }
+
+            /*& .tool-bar-menu{
+
+            }
+
+            & div.tool-bar-text{
+                font-size: 14rem;
+                font-family: Calibri, Arial, sans-serif;
+                font-weight: 500;
+                position: relative;
+                display: inline-block;
+                height: 26rem;
+                line-height: 26rem;
+                text-align: center;
+                cursor: pointer;
+                border: 0;
+                outline: none;
+
+                & .bar-icon{
+                    position: relative;
+                    left: -2px;
+                    top: 1px;
+                }
+            }*/
+        }
+    }
+}

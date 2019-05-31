@@ -1,0 +1,1 @@
+﻿select count(*) from Equipments where CategoryId=@category_id

@@ -1,0 +1,117 @@
+.main-stantion-users {
+    position: relative;
+
+    & .main-add-us {
+        position: relative;
+    }
+
+    & .flex-grid {
+        & .drop-down {
+            max-height: 140px !important;
+        }
+
+        & .item {
+            flex-flow: row wrap;
+            align-content: space-between;
+            justify-content: space-between;
+            padding: 0;
+            
+            & .g-user {
+                position: relative;
+                display: block;
+                width: 100%;
+                border-bottom: 1px solid #ccc;
+                padding: 2px;
+
+                & .icon-remov {
+                    position: absolute;
+                    font-size: 12px;
+                    right: 2px;
+                    top: 4px;
+                    color: #0458a9;
+                    cursor: pointer;
+                }
+
+                &:last-child {
+                    border-bottom: none;
+                }
+            }
+        }
+    }
+}
+
+.g-nmpn {
+    & .title {
+        position: relative;
+        text-align: center;
+        padding-top: 13px;
+        color: #3f496c;
+        font-size: 16px;
+        margin-bottom: 0;
+    }
+
+    & table.grid {
+        position: relative;
+        display: table;
+        /* border-collapse: separate; */
+        border-spacing: 2px;
+        border-color: #808080;
+
+        & tr {
+            position: relative;
+
+            & th {
+                position: relative;
+                min-width: 55px;
+                text-align: center;
+                font-weight: normal;
+                vertical-align: middle;
+                height: 22px;
+                background: #3f496c;
+                color: #000;
+                border: none;
+                border-bottom: 1px solid #ccc;
+                border-top: 1px solid #ccc;
+                padding: 5px;
+                border-right: 1px solid #fff;
+                width: 120px;
+                color: #fff;
+
+                &.hday {
+                    background: #9a1f1f;
+                }
+            }
+
+            & td {
+                position: relative;
+
+                &:first-child {
+                    position: relative;
+                    background: #596eca;
+                    color: #fff;
+                }
+
+                &.g-item {
+                    position: relative;
+
+                    &.g-green {
+                        background: #ececec;
+                        cursor: not-allowed;
+                    }
+
+                    & .icon-user {
+                        color: #3d4a6b;
+                        font-size: 16px;
+                        top: -2px;
+                        position: relative;
+                    }
+                }
+
+                & .g-npm-info {
+                    text-align: center;
+                    height: 22px;
+                }
+            }
+        }
+    }
+}

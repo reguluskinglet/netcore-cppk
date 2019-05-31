@@ -1,0 +1,35 @@
+﻿namespace Rzdppk.Model.Enums
+{
+    public enum TableNames
+    {
+        User=0,
+        UserRole=1,
+        Brigade=2,
+        Carriage=3,
+        CheckListEquipment=4,
+        Document=5,
+        Equipment=6,
+        EquipmentCategory=7,
+        EquipmentModel=8,
+        Fault=9,
+        FaultEquipment=10,
+        Inspection=11,
+        Label=12,
+        Meterage=13,
+        Model=14,
+        Route=15,
+        Signature=16,
+        Stantion=17,
+        StantionTrip=18,
+        //TaskPrint, 
+        //TaskPrintItem
+        //TemplateLabel
+        Train=19,
+        TrainTask=20,
+        TrainTaskComment=21,
+        TrainTaskExecutor=22,
+        TrainTaskStatus=23,
+        Trip=24,
+        TripRoute=25
+    }
+}

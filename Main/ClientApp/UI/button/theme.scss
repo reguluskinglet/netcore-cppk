@@ -1,0 +1,157 @@
+@import "../colors";
+@import "../globals";
+@import "../mixins";
+@import "./config";
+@import "./mixins";
+
+%squared {
+  min-width: $button-min-width;
+  padding: $button-padding;
+  border-radius: $button-border-radius;
+}
+
+.b-file{
+    & .icon-folder_open{
+        position: relative;
+        left: -4px;
+        top: 2px;
+    }
+}
+
+%button {
+    @include typo-button();
+    position: relative;
+    display: inline-block;
+    height: 26rem;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    line-height: 26rem;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    border: 0;
+    outline: none;
+    transition: box-shadow .2s $animation-curve-fast-out-linear-in, background-color .2s $animation-curve-default, color .2s $animation-curve-default;
+
+    &::-moz-focus-inner {
+        border: 0;
+    }
+    /*> span:not([data-react-toolbox="tooltip"]) {
+    display: inline-block;
+    line-height: $button-height;
+    vertical-align: middle;
+  }*/
+    > svg {
+        display: inline-block;
+        width: 1em;
+        height: $button-height;
+        font-size: 120%;
+        vertical-align: middle;
+        fill: currentColor;
+    }
+
+    > * {
+        pointer-events: none;
+    }
+
+    > .rippleWrapper {
+        overflow: hidden;
+    }
+
+    &[disabled] {
+        color: $button-disabled-text-color!important;
+        background: #c7d1de!important;
+        pointer-events: none;
+        cursor: auto;
+    }
+}
+
+.menu-drop-down {
+    background: rgb(255, 255, 255);
+    position: absolute;
+    z-index: 100;
+    padding: 4px;
+    border: solid rgb(134, 169, 204) 1px;
+    top: 100%;
+    left: 1px;
+    display: none;
+    width: 100%;
+
+    &.open {
+        display: block;
+    }
+
+    & li {
+        padding: 2px 3px;
+        font-size: 13rem;
+        font-weight: normal;
+        vertical-align: middle;
+        min-width: 150rem;
+
+        &:hover {
+            background-color: #eee;
+        }
+    }
+}
+
+.button {
+    position: relative;
+    @extend %button;
+    @extend %squared;
+
+    &.dd {
+        &:after {
+            @include direction('asc')
+        }
+
+        & .text {
+            display: inline-block;
+            width: 96%;
+        }
+
+        &.btn-menu {
+            position: relative;
+            right: 0;
+            left: inherit;
+            width: 100%;
+            color: rgb(0, 0, 0);
+            padding: 0;
+        }
+
+        &:hover{
+            opacity:1!important;
+        }
+    }
+
+    & .loading {
+        position: absolute;
+        left: -26px;
+        top: 1px;
+    }
+
+    &.btn-icon {
+        min-width: auto;
+    }
+}
+
+
+%solid {
+  &[disabled] {
+    @include shadow-2dp();
+    background-color: $button-disabled-background-color;
+  }
+  &:active {
+    @include shadow-4dp();
+  }
+  &:focus:not(:active) {
+    @include focus-shadow();
+  }
+}
+
+@include btn-colors("button", $button-color, $button-background, $button-color-hover);
+@include btn-colors("button.red", $button-color, $button-red-background, $button-color-hover);
+
+

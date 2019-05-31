@@ -1,0 +1,26 @@
+﻿INSERT INTO [dbo].[DepoEvents]
+           ([ParkingId]
+           ,[InspectionId]
+           ,[InspectionTxt]
+           ,[TrainId]
+           ,[RouteId]
+           ,[InTime]
+           ,[ParkingTime]
+           ,[RepairStopTime]
+           ,[TestStartTime]
+           ,[TestStopTime]
+           ,[UserId]
+		   ,[OutTime])
+     VALUES
+           (@ParkingId
+           ,@InspectionId
+           ,@InspectionTxt
+           ,@TrainId
+           ,@RouteId
+           ,@InTime
+           ,@ParkingTime
+           ,@RepairStopTime
+           ,@TestStartTime
+           ,@TestStopTime
+           ,@UserId
+		   ,@OutTime)

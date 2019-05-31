@@ -1,0 +1,39 @@
+﻿.g-day-of-week {
+    display: flex;
+    flex-direction: row;
+
+    & span {
+        position: relative;
+        display: inline-block;
+        height: 26px;
+        display: flex;
+        flex: 1;
+        align-items: center;
+        justify-content: center;
+        text-decoration: blink;
+        background-color: rgb(63, 73, 108);
+        padding-right: 16px;
+        padding-left: 16px;
+        font-weight: normal;
+        color: rgb(255, 255, 255);
+        cursor: pointer;
+        font-size: 15px;
+        -webkit-transition: top 1s ease-out 0.5s;
+        -moz-transition: top 1s ease-out 0.5s;
+        -o-transition: top 1s ease-out 0.5s;
+        transition: top 1s ease-out 0.5s;
+
+        &.activ {
+            position: relative;
+            background: rgb(202, 159, 37);
+        }
+
+        &:first-child {
+            position: relative;
+        }
+
+        &:last-child {
+            position: relative;
+        }
+    }
+}

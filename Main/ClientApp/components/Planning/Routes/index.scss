@@ -1,0 +1,74 @@
+﻿.form-width-btn {
+    position: relative;
+
+    & .main-field {
+        width: 72%;
+        display: inline;
+    }
+
+    & button {
+    }
+}
+
+.g-dialog-form {
+
+
+    & .day-of-week-field {
+        position: relative;
+
+        & b {
+            position: relative;
+            float: left;
+            top: 4px;
+        }
+
+        & .g-day-of-week {
+            position: relative;
+            width: 562px;
+            padding-left: 23px;
+        }
+    }
+
+    & .g-trip {
+        & .g-item-remove {
+            position: relative;
+            left: 80%;
+
+            & .icon-remov {
+                position: relative;
+                font-size: 12px;
+                color: #0f60af;
+            }
+        }
+
+        & .flex-grid {
+
+            & .g-data {
+                border-bottom: 1px solid #ccc;
+                padding: 0;
+                background: #f6f7f8;
+                position: relative;
+
+                & .g-body {
+                    padding: 15px;
+                    background: #fff;
+
+                    & .g-time .field-title {
+                        width: 39% !important;
+                    }
+                }
+
+                & .g-data-action {
+                    padding: 5px;
+                    position: relative;
+
+                    & button {
+                        position: relative;
+                        left: 87%;
+                        background: linear-gradient(to right, #57a600, #21a950);
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,11 @@
+﻿<Window x:Class="WpfMultiScreens.Windows.ScreenWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="ScreenWindow" Height="1080" Width="1920" WindowStyle="None" ResizeMode="NoResize">
+    <DockPanel Background="Black">
+        <Frame NavigationUIVisibility="Hidden" x:Name="MainFrame" Navigated="frame_Navigated"/>
+    </DockPanel>
+</Window>

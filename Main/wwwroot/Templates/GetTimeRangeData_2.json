@@ -1,0 +1,59 @@
+{
+  "trip": "0750",
+  "stantions": [
+    {
+      "id": 1,
+      "name": "Земля",
+      "train": "009",
+      "startPlan": "05:00",
+      "endPlan": "06:00",
+      "trainId": 1,
+      "startFact": "0001-01-01T06:00:00Z",
+      "endFact": "0001-01-01T06:30:00Z",
+      "canceled": false,
+      "planeStationOnTripId": 1
+    },
+    {
+      "id": 2,
+      "name": "Марс",
+      "train": "009",
+      "startPlan": "05:00",
+      "endPlan": "06:00",
+      "trainId": 2,
+      "startFact": "0001-01-01T06:00:00Z",
+      "endFact": "0001-01-01T06:30:00Z",
+      "canceled": false,
+      "planeStationOnTripId": 1
+
+    },
+    {
+      "id": 2,
+      "name": "Плутон",
+      "train": "009",
+      "startPlan": "05:00",
+      "endPlan": "06:00",
+      "trainId": 3,
+      "startFact": "0001-01-01T06:00:00Z",
+      "endFact": "0001-01-01T06:30:00Z",
+      "canceled": false,
+      "planeStationOnTripId": 1
+
+    }
+  ],
+  "dataSource": {
+    "trains": [
+      {
+        "value": 1,
+        "text": "ЭП2Д-009"
+      },
+      {
+        "value": 2,
+        "text": "ЭП2Д-010"
+      },
+      {
+        "value": 3,
+        "text": "ЭП2Д-011"
+      }
+    ]
+  }
+}

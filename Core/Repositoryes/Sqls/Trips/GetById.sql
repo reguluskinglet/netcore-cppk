@@ -1,0 +1,1 @@
+﻿SELECT Id, Name, TripType FROM Trips WHERE Id=@id

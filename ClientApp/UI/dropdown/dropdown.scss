@@ -1,0 +1,120 @@
+﻿@import "../mixins";
+
+.select-none{
+   cursor:default;
+}
+
+.main-drop-down {
+    width: 100%;
+    position: relative;
+
+    &.error {
+        & .drop-down-arrow {
+            border-top-color: red;
+            border-bottom-color: red;
+        }
+
+        & input {
+            border-color: red;
+        }
+    }
+
+    &.disabled {
+        opacity: 0.3;
+
+        & .drop-down-overlay {
+            position: absolute;
+            background: rgba(0,0,0,0);
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            cursor: default;
+        }
+    }
+
+    & input:disabled {
+        background: white;
+    }
+
+    & .main-loading {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 100%;
+        padding-left: 33%;
+        border: 1px solid rgba(0,0,0,.15);
+        -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+        box-shadow: 0 6px 12px rgba(0,0,0,.175);
+        padding-top: 1px;
+    }
+
+    &.open {
+
+        & .drop-down {
+            display: block
+        }
+    }
+
+    & .drop-down {
+        top: 100%;
+        display: none;
+        position: absolute;
+        margin: 0;
+        background: #fff;
+        color: black;
+        overflow-y: auto;
+        max-height: 350px;
+        min-width: 100%;
+        z-index: 995;
+        overflow-x: hidden;
+        border: 1px solid rgba(0,0,0,.15);
+        -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+        box-shadow: 0 6px 12px rgba(0,0,0,.175);
+
+
+        & ul {
+            position: relative;
+
+            & li {
+                padding: 3px 3px 3px 5px;
+                border-bottom: 1px solid #efefef;
+                cursor: pointer;
+                white-space: nowrap;
+
+                &.active {
+                    background: rgba(253, 231, 119, 0.3);
+                }
+
+                &:hover {
+                    background-color: #efefef;
+                }
+            }
+        }
+    }
+
+    & .label-clear {
+        & .drop-down-arrow {
+            right: 22rem;
+        }
+    }
+
+    & .drop-down-arrow {
+        background: linear-gradient(#f9f9f9 0%, #e2e2e2 100%);
+        position: absolute;
+        right: 0;
+        top: 0;
+        border: 1px solid #8bb0bf;
+        padding: 6rem;
+        height: 100%;
+        cursor: pointer;
+
+        &:after {
+            margin-top: -9px;
+            @include direction('asc', $margin-left:0)
+        }
+    }
+
+    & .label-clear input {
+        padding-right: 50rem !important;
+    }
+}

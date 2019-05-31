@@ -1,0 +1,1 @@
+﻿SELECT Id FROM TrainTaskComments WHERE RefId=@id

@@ -1,0 +1,2 @@
+﻿INSERT INTO [dbo].[Meterage]([Date],[InspectionId],[LabelId],[Value],[UpdateDate],[IsRfidScaned],[TaskStatusId])
+VALUES (@Date,@InspectionRefId,@LabelId,@Value,@UpdateDate,@IsRfidScaned,@TaskStatusRefId)

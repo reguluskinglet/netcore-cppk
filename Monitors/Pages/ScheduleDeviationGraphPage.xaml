@@ -1,0 +1,107 @@
+﻿<Page x:Class="WpfMultiScreens.Pages.ScheduleDeviationGraphPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfMultiScreens.Pages"
+      xmlns:properties="clr-namespace:WpfMultiScreens.Properties"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1920"
+      Title="ScheduleDeviationGraphPage" Loaded="OnLoaded" KeepAlive="False">
+
+    <Canvas Width="1920.000" Height="1080.000" Background="White">
+
+        <Canvas>
+
+            <!-- верхняя плашка -->
+            <Canvas>
+
+                <Path Data="F1 M 1920.000,154.286 L 0.000,154.286 L 0.000,0.000 L 1920.000,0.000 L 1920.000,154.286 Z">
+                    <Path.Fill>
+                        <LinearGradientBrush MappingMode="Absolute" StartPoint="1566.892,858.857" EndPoint="3486.892,858.857">
+                            <LinearGradientBrush.GradientStops>
+                                <GradientStop Offset="0.00" Color="#ff063964"/>
+                                <GradientStop Offset="0.38" Color="#ff00a1aa"/>
+                                <GradientStop Offset="0.99" Color="#ff005070"/>
+                            </LinearGradientBrush.GradientStops>
+                            <LinearGradientBrush.Transform>
+                                <MatrixTransform Matrix="1.000,0.000,-0.000,-1.000,-1566.892,936.000" />
+                            </LinearGradientBrush.Transform>
+                        </LinearGradientBrush>
+                    </Path.Fill>
+                </Path>
+
+                <!-- дата -->
+                <TextBlock HorizontalAlignment="Right" TextAlignment="Right" x:Name="DateMark" Foreground="#ffffffff" Canvas.Right="-1810.0" Canvas.Top="87.225" FontSize="{Binding Source={x:Static properties:Settings.Default}, Path=PageHeaderFontSize}" FontFamily="AvantGardeGothicC">19.05.2018</TextBlock>
+
+                <!-- время -->
+                <TextBlock HorizontalAlignment="Right" TextAlignment="Right" x:Name="TimeMark" Foreground="#ffffffff" Canvas.Right="-1810.0" Canvas.Top="24.373" FontSize="{Binding Source={x:Static properties:Settings.Default}, Path=PageHeaderTimeFontSize}" FontFamily="AvantGardeGothicC">9:03</TextBlock>
+
+                <Canvas>
+                    <!-- вертикальная полоска -->
+                    <Path StrokeThickness="5.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Data="F1 M 1113.576,22.041 L 1113.576,132.245"/>
+
+                    <!-- Расхождение графика рейсов Image copy/header/<Группа>/<Контур> -->
+                    <Path StrokeThickness="5.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Data="F1 M 1554.723,22.041 L 1554.723,132.245"/>
+
+                    <!-- Расхождение графика рейсов Image copy/header/<Группа>/<Контур> -->
+                    <Path StrokeThickness="5.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Data="F1 M 293.690,22.041 L 293.690,132.245"/>
+
+                    <TextBlock x:Name="HeaderLeft1" Foreground="#ffffffff" Canvas.Left="339" Canvas.Top="34" FontSize="{Binding Source={x:Static properties:Settings.Default}, Path=PageHeaderFontSize}" FontFamily="AvantGardeGothicC">Количество поездов на маршрутах: 5</TextBlock>
+
+                    <TextBlock x:Name="HeaderLeft2" Foreground="#ffffffff" Canvas.Left="339" Canvas.Top="79" FontSize="{Binding Source={x:Static properties:Settings.Default}, Path=PageHeaderFontSize}" FontFamily="AvantGardeGothicC">Количество поездов в депо Нахабино: 1</TextBlock>
+
+                    <TextBlock x:Name="HeaderRight" Foreground="#ffffffff" Canvas.Left="1173" Canvas.Top="50" FontSize="{Binding Source={x:Static properties:Settings.Default}, Path=PageHeaderFontSize}" FontFamily="AvantGardeGothicC">Срывы графика: 1</TextBlock>
+                </Canvas>
+
+                <!-- лого -->
+                <Canvas>
+                    <Path Fill="#ffffffff" Data="F1 M 153.093,37.825 C 158.702,35.268 164.926,33.831 171.481,33.831 C 191.679,33.831 208.767,47.365 214.193,65.840 C 217.298,69.055 220.021,72.485 222.297,76.117 L 222.332,76.144 C 221.160,49.091 198.801,27.438 171.481,27.438 C 160.577,27.438 150.475,30.900 142.185,36.769 C 145.876,36.981 149.517,37.336 153.093,37.825"/>
+
+                    <!-- Расхождение графика рейсов Image copy/header/<Группа>/<Контур> -->
+                    <Path Fill="#ffffffff" Data="F1 M 207.014,109.763 L 206.738,109.885 L 203.119,109.885 C 195.043,117.844 183.845,123.026 171.481,123.026 C 146.937,123.026 126.964,102.993 126.964,78.431 C 126.964,69.450 129.643,61.060 134.229,54.056 C 132.184,53.748 130.111,53.483 128.022,53.281 C 127.762,53.266 127.499,53.253 127.239,53.238 C 123.006,60.665 120.574,69.240 120.574,78.384 C 120.574,106.467 143.412,129.320 171.481,129.320 C 188.334,129.320 203.293,121.127 212.564,108.464 C 210.811,109.118 208.953,109.603 207.014,109.763"/>
+
+                    <!-- Расхождение графика рейсов Image copy/header/<Группа>/<Контур> -->
+                    <Path Fill="#ffffffff" Data="F1 M 195.209,84.783 C 193.547,81.110 191.372,78.049 188.715,74.987 L 139.500,74.987 L 143.356,84.783 L 195.209,84.783 Z"/>
+
+                    <!-- Расхождение графика рейсов Image copy/header/<Группа>/<Контур> -->
+                    <Path Fill="#ffffffff" Data="F1 M 217.113,80.661 L 217.110,80.657 C 204.067,58.828 171.675,43.318 133.850,43.318 C 126.725,43.318 119.624,43.874 112.745,44.968 L 112.875,46.428 C 115.360,46.299 117.847,46.237 120.277,46.237 C 154.540,46.237 184.791,58.431 199.328,76.040 L 199.324,76.036 C 200.983,78.047 204.131,82.207 205.292,84.966 C 205.553,85.586 206.023,86.842 206.195,88.163 C 206.529,90.705 203.775,93.355 200.636,93.355 L 191.744,93.355 C 191.770,93.355 191.805,93.520 191.834,93.601 C 191.805,93.520 191.770,93.355 191.744,93.355 L 146.676,93.355 L 150.529,102.538 L 204.107,102.538 C 203.589,102.538 203.589,102.538 204.107,102.538 L 206.458,102.538 C 213.792,102.538 219.558,95.976 219.558,88.487 C 219.558,85.113 217.390,81.127 217.113,80.661"/>
+                </Canvas>
+
+            </Canvas>
+            <Border x:Name="MainGridContainer" BorderBrush="Black" Canvas.Left="112" Canvas.Top="257" BorderThickness="1">
+                <Grid ShowGridLines="False">
+                </Grid>
+            </Border>
+
+            <!-- нижняя плашка -->
+            <Canvas>
+                <Path Data="F1 M 1920.000,1080.000 L 0.000,1080.000 L 0.000,1002.857 L 1920.000,1002.857 L 1920.000,1080.000 Z">
+                    <Path.Fill>
+                        <LinearGradientBrush MappingMode="Absolute" StartPoint="1566.892,-105.429" EndPoint="3486.892,-105.429">
+                            <LinearGradientBrush.GradientStops>
+                                <GradientStop Offset="0.00" Color="#ff063964"/>
+                                <GradientStop Offset="0.38" Color="#ff00a1aa"/>
+                                <GradientStop Offset="0.99" Color="#ff005070"/>
+                            </LinearGradientBrush.GradientStops>
+                            <LinearGradientBrush.Transform>
+                                <MatrixTransform Matrix="1.000,0.000,-0.000,-1.000,-1566.892,936.000" />
+                            </LinearGradientBrush.Transform>
+                        </LinearGradientBrush>
+                    </Path.Fill>
+                </Path>
+            </Canvas>
+
+            <Grid Canvas.Top="183" Width="1920">
+                <!-- заголовок -->
+                <TextBlock x:Name="TableName" Foreground="#ff061e2c" HorizontalAlignment="Center"  FontSize="{Binding Source={x:Static properties:Settings.Default}, Path=PageTitleFontSize}" FontFamily="AvantGardeGothicC">Расхождение фактического и планового графика</TextBlock>
+            </Grid>
+
+            <Grid Canvas.Top="1023" Width="1920">
+                <!-- заголовок -->
+                <TextBlock Foreground="White" HorizontalAlignment="Center" FontSize="{Binding Source={x:Static properties:Settings.Default}, Path=PageFooterFontSize}" FontFamily="AvantGardeGothicC">АСПОЖС АО «Центральная ППК»</TextBlock>
+            </Grid>
+        </Canvas>
+
+    </Canvas>
+</Page>

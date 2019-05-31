@@ -1,0 +1,5 @@
+﻿SELECT *
+FROM Brigades 
+ORDER BY id ASC 
+OFFSET @skip ROWS
+FETCH NEXT @limit ROWS ONLY;

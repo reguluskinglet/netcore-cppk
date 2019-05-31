@@ -1,0 +1,88 @@
+﻿.dialog-blok {
+    padding: 2px;
+    margin-top: 15px;
+}
+
+.g-field {
+    position: relative;
+    border-bottom: 1px solid rgb(213, 226, 236);
+    padding: 2px 0;
+
+    & .g-title {
+        position: relative;
+        font-size: 14px;
+        font-weight: bold;
+        color: rgb(0, 0, 0);
+        width: 144px;
+        display: inline-block;
+    }
+
+    & .g-value {
+        position: relative;
+        color: #000;
+    }
+}
+
+
+
+#g-items-count {
+    position: absolute;
+    top: 8px;
+    font-size: 12rem;
+}
+
+.dialog-load-panel {
+    & p {
+        font-size: 18px;
+        padding: 5px
+    }
+
+    & .spinner {
+        position: relative;
+        left: 44%;
+        width: 25px;
+
+        & .spinner-icon {
+            border-top-color: #29d;
+            width: 25px;
+            height: 25px;
+            -webkit-animation: nprogress-spinner 800ms linear infinite;
+            animation: nprogress-spinner 800ms linear infinite;
+        }
+    }
+}
+
+.dialog-error-message {
+    padding: 15px;
+    font-size: 18px;
+}
+
+.print-action {
+    margin: 19px 0;
+
+    & .progress {
+        padding-left: 15px;
+        font-weight: bold;
+        color: #009688;
+    }
+
+    & .print-complited {
+        position: relative;
+        background-color: #00d1b2;
+        color: #fff;
+        font-weight: bold;
+
+        &.error {
+            background-color: red;
+        }
+
+
+        & p {
+            position: relative;
+            font-weight: bold;
+            font-size: 16px;
+            padding: 5px;
+            text-align: center;
+        }
+    }
+}

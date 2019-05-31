@@ -1,0 +1,1 @@
+﻿SELECT Id FROM TrainTasks WHERE RefId=@id

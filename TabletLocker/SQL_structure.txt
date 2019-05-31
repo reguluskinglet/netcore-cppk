@@ -1,0 +1,115 @@
+CREATE TABLE [dbo].[Users] (
+    [Id] [int] IDENTITY(1,1) NOT NULL,
+    [Name] [nvarchar](MAX) NULL,
+	[Login] [nvarchar](450) NULL,
+	[PasswordHash] [nvarchar](MAX) NULL,
+	[PersonNumber] [nvarchar](MAX) NULL,
+	[IsBlocked] [bit] NOT NULL,
+	[IsAdmin] [bit] NOT NULL,
+	[UpdateDate] [datetime2](7) NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+);
+
+ALTER TABLE [dbo].[Users] ADD  DEFAULT (getdate()) FOR [UpdateDate]
+GO
+
+
+CREATE TABLE [dbo].[Devices] (
+    [Id] [int] IDENTITY(1,1) NOT NULL,
+    [Name] [nvarchar](MAX) NULL,
+	[Serial] [nvarchar](MAX) NULL,
+	[CellNumber] [int] NOT NULL,
+	[OpenTasksCount] [int] NULL,
+	[LastOperation] [int] NULL,
+	[LastOperationUserId] [int] NULL,
+	[LastOperationDate] [datetime2](7) NULL,
+	[LastCharge] [int] NULL,
+	[LastChargeDate] [datetime2](7) NULL,
+	[UpdateDate] [datetime2](7) NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+);
+
+ALTER TABLE [dbo].[Devices] ADD  DEFAULT (getdate()) FOR [UpdateDate]
+GO
+
+ALTER TABLE [dbo].[Devices] WITH CHECK ADD CONSTRAINT [FK_Devices_LastOperUser] FOREIGN KEY([LastOperationUserId])
+REFERENCES [dbo].[Users] ([Id])
+GO
+
+CREATE NONCLUSTERED INDEX [IX_Device_Cellnumber_Uniq] ON [dbo].[Devices]
+(
+	[CellNumber] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
+GO
+
+
+CREATE TABLE [dbo].[DeviceFaults] (
+    [Id] [int] IDENTITY(1,1) NOT NULL,
+    [Name] [nvarchar](MAX) NULL,
+	[Description] [nvarchar](MAX) NULL,
+	[UpdateDate] [datetime2](7) NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+);
+
+ALTER TABLE [dbo].[DeviceFaults] ADD  DEFAULT (getdate()) FOR [UpdateDate]
+GO
+
+
+CREATE TABLE [dbo].[OperationOut] (
+    [Id] [int] IDENTITY(1,1) NOT NULL,
+	[Operation] [int] NULL,
+	[DeviceId] [int] NOT NULL,
+	[UserId] [int] NOT NULL,
+	[CreateDate] [datetime2](7) NOT NULL,
+	[IsSent] [bit] NOT NULL,
+	[RefId] [uniqueidentifier] NOT NULL DEFAULT NEWID(),
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+);
+
+ALTER TABLE [dbo].[OperationOut] ADD  DEFAULT (getdate()) FOR [CreateDate]
+GO
+
+ALTER TABLE [dbo].[OperationOut] WITH CHECK ADD CONSTRAINT [FK_OperOut_Device] FOREIGN KEY([DeviceId])
+REFERENCES [dbo].[Devices] ([Id])
+GO
+
+ALTER TABLE [dbo].[OperationOut] WITH CHECK ADD CONSTRAINT [FK_OperOut_User] FOREIGN KEY([UserId])
+REFERENCES [dbo].[Users] ([Id])
+GO
+
+CREATE UNIQUE NONCLUSTERED INDEX [IX_OperOut_RefId] ON [dbo].[OperationOut]
+(
+	[RefId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+
+
+CREATE TABLE [dbo].[TaskOut] (
+    [Id] [int] IDENTITY(1,1) NOT NULL,
+	[DeviceId] [int] NOT NULL,
+	[UserId] [int] NOT NULL,
+	[DeviceFaultId] [int] NULL,
+	[CreateDate] [datetime2](7) NOT NULL DEFAULT GETDATE(),
+	[IsSent] [bit] NOT NULL,
+	[RefId] [uniqueidentifier] NOT NULL DEFAULT NEWID(),
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+);
+
+ALTER TABLE [dbo].[TaskOut] WITH CHECK ADD CONSTRAINT [FK_TaskOut_Device] FOREIGN KEY([DeviceId])
+REFERENCES [dbo].[Devices] ([Id])
+GO
+
+ALTER TABLE [dbo].[TaskOut] WITH CHECK ADD CONSTRAINT [FK_TaskOut_User] FOREIGN KEY([UserId])
+REFERENCES [dbo].[Users] ([Id])
+GO
+
+ALTER TABLE [dbo].[TaskOut] WITH CHECK ADD CONSTRAINT [FK_TaskOut_DeviceFault] FOREIGN KEY([DeviceFaultId])
+REFERENCES [dbo].[DeviceFaults] ([Id])
+GO
+
+CREATE UNIQUE NONCLUSTERED INDEX [IX_TaskOut_RefId] ON [dbo].[TaskOut]
+(
+	[RefId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+

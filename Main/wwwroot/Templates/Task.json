@@ -1,0 +1,187 @@
+﻿{
+  "id": 44,
+  "data": "2018-10-01T11:23:30Z",
+  "initiatorName": "Администратор",
+  "trainName": "ЭП4Д008",
+  "equipmentName": "Тамбур",
+  "carriageSerial": "0001",
+  "taskType": 0,
+  "statusId": 2,
+  "brigadeType": 1,
+  "taskLevel": 3,
+  "possibletaskStatuses": [ 9, 0, 1, 2, 99, 8 ],
+
+  "faults": [
+    {
+      "id": 1,
+      "date": "2015-02-01T00:00:00Z",
+      "user": "Администратор",
+      "text": "Грязь в салоне вагона"
+    },
+    {
+      "id": 2,
+      "date": "2015-02-01T00:00:00Z",
+      "user": "Администратор",
+      "text": "Отсутсвует пломба"
+    },
+    {
+      "id": 3,
+      "date": "2015-02-01T00:00:00Z",
+      "user": "Администратор",
+      "text": "Разбито стекло"
+    }
+  ],
+  "inspections": [
+    {
+      "id": 13,
+      "dateStart": "2015-02-01T00:00:00Z",
+      "dateEnd": "2015-02-01T20:00:00Z",
+      "user": "Администратор",
+      "type": 2,
+      "brigadeType": 0,
+      "texts": [ "Тамбур → Наличие огнетушителей → 12 → 6" ]
+    },
+    {
+      "id": 14,
+      "dateStart": "2015-03-01T00:00:00Z",
+      "dateEnd": "2015-03-01T20:00:00Z",
+      "user": "Администратор",
+      "type": 0,
+      "brigadeType": 0,
+      "texts": [ "Неисправность → Что то сломалось", "Уровень критичности → Высокий" ]
+    }
+  ],
+  "history": [
+    {
+      "date": "2015-02-01T00:00:00Z",
+      "user": "Администратор",
+      "userBrigadeType": null,
+      "type": "Status",
+      "oldStatus": null,
+      "newStatus": 0,
+      "oldExecutorBrigadeType": null,
+      "newExecutorBrigadeType": null,
+      "text": null,
+      "files": [
+        {
+          "documentType": 0,
+          "id": 211,
+          "name": "graph.txt"
+        },
+        {
+          "documentType": 1,
+          "id": 211,
+          "name": "ccccccccccccccc.jpg"
+        }
+      ]
+    },
+    {
+      "date": "2016-02-01T00:00:00Z",
+      "user": "Иванов Иван",
+      "userBrigadeType": 0,
+      "type": "Status",
+      "oldStatus": 0,
+      "newStatus": 2,
+      "oldExecutorBrigadeType": null,
+      "newExecutorBrigadeType": null,
+      "text": null,
+      "files": null
+    },
+    {
+      "date": "2018-07-12T11:23:30Z",
+      "user": "Иванов Иван",
+      "userBrigadeType": 0,
+      "type": "Status",
+      "oldStatus": 2,
+      "newStatus": 0,
+      "oldExecutorBrigadeType": null,
+      "newExecutorBrigadeType": null,
+      "text": null,
+      "files": null
+    },
+    {
+      "date": "2018-09-30T11:23:33Z",
+      "user": "Администратор",
+      "userBrigadeType": null,
+      "type": "Status",
+      "oldStatus": 0,
+      "newStatus": 2,
+      "oldExecutorBrigadeType": null,
+      "newExecutorBrigadeType": null,
+      "text": null,
+      "files": null
+    },
+    {
+      "date": "2018-09-30T11:23:43Z",
+      "user": "Администратор",
+      "userBrigadeType": null,
+      "type": "Executor",
+      "oldStatus": null,
+      "newStatus": null,
+      "oldExecutorBrigadeType": 1,
+      "newExecutorBrigadeType": 1,
+      "text": null,
+      "files": null
+    },
+    {
+      "date": "2015-02-01T00:00:00Z",
+      "user": "Администратор",
+      "userBrigadeType": null,
+      "type": "Status",
+      "oldStatus": null,
+      "newStatus": 0,
+      "oldExecutorBrigadeType": null,
+      "newExecutorBrigadeType": null,
+      "text": null,
+      "files": null
+    },
+    {
+      "date": "2016-02-01T00:00:00Z",
+      "user": "Иванов Иван",
+      "userBrigadeType": 0,
+      "type": "Status",
+      "oldStatus": 0,
+      "newStatus": 2,
+      "oldExecutorBrigadeType": null,
+      "newExecutorBrigadeType": null,
+      "text": null,
+      "files": null
+    },
+    {
+      "date": "2018-07-12T11:23:30Z",
+      "user": "Иванов Иван",
+      "userBrigadeType": 0,
+      "type": "Status",
+      "oldStatus": 2,
+      "newStatus": 0,
+      "oldExecutorBrigadeType": null,
+      "newExecutorBrigadeType": null,
+      "text": null,
+      "files": null
+    },
+    {
+      "date": "2018-09-30T11:23:33Z",
+      "user": "Администратор",
+      "userBrigadeType": null,
+      "type": "Status",
+      "oldStatus": 0,
+      "newStatus": 2,
+      "oldExecutorBrigadeType": null,
+      "newExecutorBrigadeType": null,
+      "text": null,
+      "files": null
+    },
+    {
+      "date": "2018-09-30T11:23:43Z",
+      "user": "Администратор",
+      "userBrigadeType": null,
+      "type": "Executor",
+      "oldStatus": null,
+      "newStatus": null,
+      "oldExecutorBrigadeType": 1,
+      "newExecutorBrigadeType": 1,
+      "text": null,
+      "files": null
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+select count(*) from Meterage m where m.InspectionId=@inspection_id and m.Value is not null

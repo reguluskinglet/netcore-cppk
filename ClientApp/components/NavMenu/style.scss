@@ -1,0 +1,61 @@
+@import "../../UI/_mixins.scss";
+
+.tooltip {
+    &.warning {
+        background: #ffa500;
+        color: #3f496c;
+        font-weight: bold;
+    }
+}
+
+.g-nav {
+    position: relative;
+    /* border-bottom: 1px solid #075aaa; */
+    display: flex;
+    flex-direction: row;
+    background-color: #f4f4f4;
+
+    &:before {
+        @include direction('desc');
+        position: absolute;
+        top: -4px;
+        color: #f4f4f4;
+        left: 21%;
+    }
+
+    & a {
+        display: inline-block;
+        position: relative;
+        text-decoration: none;
+        padding: 7px 29px;
+        color: #000;
+
+        &:hover {
+            background-color: rgb(228, 234, 240);
+        }
+
+        &.active {
+            color: #106ebe;
+            border-bottom: 2px solid #106ebe;
+        }
+    }
+    /*& ul {
+
+
+        & li {
+            display: inline-block;
+            position: relative;
+            text-decoration: none;
+            padding: 7px 29px;
+            color: rgb(42, 88, 133);
+
+            &:hover {
+                background-color: rgb(228, 234, 240);
+            }
+
+            &.active {
+                background-color: rgb(228, 234, 240);
+            }
+        }
+    }*/
+}

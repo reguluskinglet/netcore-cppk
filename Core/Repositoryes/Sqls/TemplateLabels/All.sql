@@ -1,0 +1,5 @@
+﻿SELECT *
+FROM TemplateLabels 
+ORDER BY id ASC 
+OFFSET @skip ROWS
+FETCH NEXT @limit ROWS ONLY;

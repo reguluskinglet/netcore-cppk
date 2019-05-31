@@ -1,0 +1,1 @@
+﻿select count(*) from auth_users

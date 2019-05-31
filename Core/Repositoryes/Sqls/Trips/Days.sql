@@ -1,0 +1,1 @@
+﻿SELECT Day FROM DayOfTrips WHERE TripId=@id

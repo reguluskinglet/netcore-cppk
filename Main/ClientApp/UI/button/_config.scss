@@ -1,0 +1,22 @@
+$button-color: white;
+$button-color-hover: rgba($color-primary, .2) !default;
+$button-background: linear-gradient(to right, rgb(0, 85, 166), rgb(38, 114, 189));
+$button-red-background:linear-gradient(to right, rgb(166, 0, 0), rgb(189, 38, 38));
+
+$button-disabled-text-color: rgba($color-black, 0.26) !default;
+$button-disabled-background-color: rgba($color-black, 0.12) !default;
+
+$button-border-radius: 0;
+$button-height: $unit * 2.6 !default;
+$button-min-width: 9 * $unit !default;
+$button-padding: 0 $unit * 1.2 !default;
+
+/*$button-floating-font-size: $unit * 2.4 !default;
+$button-floating-height: $unit * 5.6 !default;
+$button-floating-mini-height: $unit * 4 !default;
+$button-floating-mini-font-size: $button-floating-mini-height / 2.25 !default;
+
+$button-squared-icon-margin: $unit * .6 !default;
+
+
+$button-toggle-font-size: $unit * 2 !default;*/

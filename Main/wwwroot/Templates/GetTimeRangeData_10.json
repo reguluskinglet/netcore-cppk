@@ -1,0 +1,45 @@
+{
+  "users": [
+    {
+      "startId": 3,
+      "endId": 2,
+      "userId": 3,
+      "id": 1,
+      "user": "Гринимаер",
+      "start": "Марс",
+      "end": "Франция",
+      "planeBrigadeTrainId": 1,
+      "canseled": false
+    }
+  ],
+  "dataSource": {
+    "stantions": [
+      {
+        "value": 1,
+        "text": "Станция 1"
+      },
+      {
+        "value": 2,
+        "text": "Станция 2"
+      },
+      {
+        "value": 3,
+        "text": "Станция 3"
+      }
+    ],
+    "users": [
+      {
+        "value": 1,
+        "text": "Администратор"
+      },
+      {
+        "value": 2,
+        "text": "Владислав"
+      },
+      {
+        "value": 3,
+        "text": "Иванов"
+      }
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+///api/SheduleCycle/TripsByTunoverIdAndDays?turnoverId=13&routeId=34
+//Нужно поменять:
+[
+  //Что сейчас
+  {
+    "tripOnRoutes": null,
+    "stantionOnTrips": null,
+    "name": "12345(01:37-20:29,Вс, Пн, Вт, Ср, Чт, Пт, Сб)",
+    "description": null,
+    "id": 26,
+    "updateDate": "2018-09-07T12:06:43Z"
+  },
+
+  //Где нужно поменять выделенно коментариями
+  //Просьба оставить наименование переменных которые я указываю!!!
+  {
+    "tripOnRoutes": null,
+    "stantionOnTrips": null,
+    "name": "12345",
+    "description": null,
+    "id": 26,
+    "updateDate": "2018-09-07T12:06:43Z",
+
+    "startStantion": "Москва",
+    "endStantion": "Рязань",
+    "startTime": "01:37", //Начало рейса
+    "endTime": "20:29", //Окончание рейса
+    "days": [ 0, 1, 5 ] //Дни недели 
+  }
+]
+

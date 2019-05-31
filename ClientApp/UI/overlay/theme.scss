@@ -1,0 +1,89 @@
+﻿@import "../colors";
+@import "../globals";
+@import "../mixins";
+@import "./config";
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  pointer-events: all;
+}
+
+.overlay-form{
+    pointer-events: all;
+    margin: 0 auto;
+    width: 620px;
+    &.inherit{
+       width: inherit;
+    }
+    &.o-1200{
+       width:1200px;
+    }
+
+     &.o-700{
+       width:700px;
+       & .main-merge{
+            width:700px;
+       }
+    }
+
+    &.o-360{
+        width:360px;
+    }
+
+    &.o-520{
+        width:520px;
+        & .backdrop{
+            z-index: 1100;
+        }
+        & .dialog-form{
+            width:520px;
+            z-index: 1200;
+        }
+
+    }
+
+    &.fix-body{
+        & .body{
+            padding:0;
+            & .title{
+                padding: 24rem 24rem 0 24rem;
+            }
+        }
+    }
+}
+
+
+.backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(96, 128, 172, 0.5019607843137255);
+    opacity: 0;
+    transition-timing-function: $animation-curve-default;
+    transition-duration: $animation-duration;
+    transition-property: opacity;
+
+    &.active {
+        opacity: $overlay-opacity;
+    }
+
+    &.fix {
+        position: fixed;
+        z-index: 999;
+    }
+}
+
+

@@ -1,0 +1,9 @@
+C:\Projects\IT\Rzdppk\Rzdppk.Api\bin\Release\netcoreapp2.1\Rzdppk.Api.deps.json
+C:\Projects\IT\Rzdppk\Rzdppk.Api\bin\Release\netcoreapp2.1\Rzdppk.Api.dll
+C:\Projects\IT\Rzdppk\Rzdppk.Api\bin\Release\netcoreapp2.1\Rzdppk.Api.pdb
+C:\Projects\IT\Rzdppk\Rzdppk.Api\obj\Release\netcoreapp2.1\Rzdppk.Api.csprojAssemblyReference.cache
+C:\Projects\IT\Rzdppk\Rzdppk.Api\obj\Release\netcoreapp2.1\Rzdppk.Api.csproj.CoreCompileInputs.cache
+C:\Projects\IT\Rzdppk\Rzdppk.Api\obj\Release\netcoreapp2.1\Rzdppk.Api.AssemblyInfoInputs.cache
+C:\Projects\IT\Rzdppk\Rzdppk.Api\obj\Release\netcoreapp2.1\Rzdppk.Api.AssemblyInfo.cs
+C:\Projects\IT\Rzdppk\Rzdppk.Api\obj\Release\netcoreapp2.1\Rzdppk.Api.dll
+C:\Projects\IT\Rzdppk\Rzdppk.Api\obj\Release\netcoreapp2.1\Rzdppk.Api.pdb

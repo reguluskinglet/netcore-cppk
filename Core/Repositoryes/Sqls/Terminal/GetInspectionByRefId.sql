@@ -1,0 +1,1 @@
+﻿SELECT Id FROM Inspections WHERE RefId=@id
