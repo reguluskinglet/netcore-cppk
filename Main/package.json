@@ -37,7 +37,7 @@
     "babel-loader": "^7.1.5",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
-    "bootstrap": "3.3.7",
+    "bootstrap": "3.4.1",
     "classnames": "^2.2.5",
     "css-hot-loader": "1.3.2",
     "css-loader": "0.28.4",
